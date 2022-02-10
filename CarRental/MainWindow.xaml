@@ -1,0 +1,29 @@
+﻿<Window x:Class="CarRental.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarRental"
+        mc:Ignorable="d"
+        Title="WheelsCompany"
+        MinHeight="1000" MinWidth="1900"
+        MaxHeight="1000" MaxWidth="1900"
+        WindowStartupLocation="CenterScreen" WindowStyle="None">
+    
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF232D3E"/>
+                <GradientStop Color="#FF161A21" Offset="1"/>
+                <GradientStop Color="#FF1D222C" Offset="0.5"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        
+    </Grid>
+</Window>
