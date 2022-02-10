@@ -27,14 +27,14 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
 
         <Grid x:Name="ToolBar" Background="Transparent" Grid.ColumnSpan="2" MouseDown="ToolBarMouseDown">
             <TextBlock Margin="20,0,0,0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" Foreground="White">CarRental</TextBlock>
         </Grid>
         <Border BorderThickness="1" BorderBrush="Black" Height="1" Margin="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Top"/>
-        <Border  BorderThickness="1" BorderBrush="Black" Height="950" Width="1" Margin="0" Grid.Row="1"  Grid.RowSpan="2" Grid.Column="0" HorizontalAlignment="Right"/>
+        <Border  BorderThickness="1" BorderBrush="Black" Height="990" Width="1" Margin="0" Grid.Row="1"  Grid.RowSpan="2" Grid.Column="0" HorizontalAlignment="Right"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="1">
             <Image x:Name="MinimizeButton" Style="{StaticResource MinimizeButtonHover}" MouseLeftButtonDown="MinimizeButtonMouseLeftButtonDown"/>
             <Image x:Name="OpenFullscreenButton" Style="{StaticResource OpenFullscreenButtonHover}" MouseLeftButtonDown="OpenFullscreenButtonMouseLeftButtonDown"/>
@@ -43,8 +43,28 @@
         </StackPanel>
 
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
-            <Button x:Name="NewsButton" Style="{StaticResource MyButtonStyle}" Cursor="Hand" FontSize="22.5" Click="AutomobileButtonClick">Новости</Button>
-            <Button x:Name="AutomobileButton" Style="{StaticResource MyButtonStyle}" Cursor="Hand" FontSize="22.5" Click="AutomobileButtonClick">Автомобили</Button>
+            <Button x:Name="NewsButton" Style="{StaticResource MyButtonStyle}" FontSize="22.5" Click="AutomobileButtonClick">Новости</Button>
+            <Button x:Name="AutomobileButton" Style="{StaticResource MyButtonStyle}" FontSize="22.5" Click="AutomobileButtonClick">Автомобили</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Orientation="Vertical" x:Name="AuthMenuStackPanel">
+            <Border Background="White" CornerRadius="10" Width="210" Height="180">
+                <StackPanel Margin="0,2,0,0">
+                    <TextBlock Width="180" Margin="0,5,0,2.5" FontSize="14">Логин</TextBlock>
+                    <TextBox x:Name="LoginTextBox" Width="180" Margin="0,2.5,0,5" FontSize="14" BorderBrush="{x:Null}">
+                        <TextBox.Effect>
+                            <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
+                        </TextBox.Effect>
+                    </TextBox>
+                    <TextBlock Width="180" Margin="0,2.5,0,2.5" FontSize="14">Пароль</TextBlock>
+                    <PasswordBox Width="180" Margin="0,2.5,0,5" FontSize="14" BorderBrush="{x:Null}">
+                        <PasswordBox.Effect>
+                            <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
+                        </PasswordBox.Effect></PasswordBox>
+                    <Button x:Name="AuthButton" Style="{StaticResource MyButtonStyle}" Background="Transparent" Width="180" BorderBrush="{x:Null}" Foreground="#FFDC1430" Margin="0,15,0,10" FontSize="16">Войти</Button>
+                    <Button x:Name="RegButton" Style="{StaticResource MyButtonStyle}" Background="Transparent" Width="180" BorderBrush="{x:Null}" Foreground="#FFDC1430" Margin="0,-5,0,10" FontSize="16">Зарегистрироваться</Button>
+                </StackPanel>
+            </Border>
         </StackPanel>
     </Grid>
 </Window>

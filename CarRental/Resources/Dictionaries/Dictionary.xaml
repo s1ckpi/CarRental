@@ -6,6 +6,7 @@
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Margin" Value="10"/>
+        <Setter Property="Cursor"  Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
