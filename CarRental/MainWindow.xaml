@@ -30,15 +30,19 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
+        <Grid x:Name="ToolBar" Background="Transparent" Grid.ColumnSpan="2" MouseDown="ToolBarMouseDown">
+            <TextBlock Margin="20,0,0,0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" Foreground="White">CarRental</TextBlock>
+        </Grid>
         <Border BorderThickness="1" BorderBrush="Black" Height="1" Margin="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Top"/>
-        <TextBlock Margin="20,0,0,0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" Foreground="White">CarRental</TextBlock>
+        <Border  BorderThickness="1" BorderBrush="Black" Height="950" Width="1" Margin="0" Grid.Row="1"  Grid.RowSpan="2" Grid.Column="0" HorizontalAlignment="Right"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="1">
-            <Image x:Name="MinimizeButton" Margin="0,-5,10,0" Width="20" Height="20" Cursor="Hand" Source="/Resources/Icons/minimize_noactive.png" MouseLeftButtonDown="MinimizeButtonMouseLeftButtonDown"/>
-            <Image x:Name="CloseButton" Margin="0,-5,10,0" Width="20" Height="20" Cursor="Hand" Source="/Resources/Icons/close_noactive.png" MouseLeftButtonDown="CloseButtonMouseLeftButtonDown"/>
+            <Image x:Name="MinimizeButton" Style="{StaticResource MinimizeButtonHover}" Margin="0,-5,10,0" Width="20" Height="20" Cursor="Hand" MouseLeftButtonDown="MinimizeButtonMouseLeftButtonDown"/>
+            <Image x:Name="CloseButton" Style="{StaticResource CloseButtonHover}" Margin="0,-5,10,0" Width="20" Height="20" Cursor="Hand" MouseLeftButtonDown="CloseButtonMouseLeftButtonDown"/>
         </StackPanel>
 
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
-            <Button BorderBrush="{x:Null}" Background="{x:Null}" Cursor="Hand" FontSize="20" Click="AutomobileButtonClick">Автомобили</Button>
+            <Button x:Name="NewsButton" Style="{StaticResource MyButtonStyle}" Cursor="Hand" FontSize="22.5" Click="AutomobileButtonClick">Новости</Button>
+            <Button x:Name="AutomobileButton" Style="{StaticResource MyButtonStyle}" Cursor="Hand" FontSize="22.5" Click="AutomobileButtonClick">Автомобили</Button>
         </StackPanel>
     </Grid>
 </Window>

@@ -27,7 +27,7 @@ namespace CarRental
 
         private void MinimizeButtonMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            this.WindowState = WindowState.Minimized;
         }
 
         private void CloseButtonMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -38,6 +38,14 @@ namespace CarRental
         private void AutomobileButtonClick(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void ToolBarMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
         }
     }
 }
