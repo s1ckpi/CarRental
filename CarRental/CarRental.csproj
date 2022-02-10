@@ -110,5 +110,11 @@
     <Resource Include="Resources\Icons\minimize_active.png" />
     <Resource Include="Resources\Icons\minimize_noactive.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\close_fullscreen_active.png" />
+    <Resource Include="Resources\Icons\close_fullscreen_noactive.png" />
+    <Resource Include="Resources\Icons\open_in_full_active.png" />
+    <Resource Include="Resources\Icons\open_in_full_noactive.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

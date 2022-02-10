@@ -20,6 +20,10 @@
 
     <Style TargetType="{x:Type Image}" x:Key="MinimizeButtonHover">
         <Setter Property="Source" Value="/Resources/Icons/minimize_noactive.png"/>
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Margin" Value="0,-5,10,0"/>
         <Style.Triggers>
             <DataTrigger Binding="{Binding IsMouseOver, ElementName=MinimizeButton}" Value="true">
                 <Setter Property="Source" Value="/Resources/Icons/minimize_active.png"/>
@@ -29,9 +33,40 @@
 
     <Style TargetType="{x:Type Image}" x:Key="CloseButtonHover">
         <Setter Property="Source" Value="/Resources/Icons/close_noactive.png"/>
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Margin" Value="0,-5,10,0"/>
         <Style.Triggers>
             <DataTrigger Binding="{Binding IsMouseOver, ElementName=CloseButton}" Value="true">
                 <Setter Property="Source" Value="/Resources/Icons/close_active.png"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="{x:Type Image}" x:Key="OpenFullscreenButtonHover">
+        <Setter Property="Source" Value="/Resources/Icons/open_in_full_noactive.png"/>
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Margin" Value="0,-5,10,0"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsMouseOver, ElementName=OpenFullscreenButton}" Value="true">
+                <Setter Property="Source" Value="/Resources/Icons/open_in_full_active.png"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="{x:Type Image}" x:Key="CloseFullscreenButtonHover">
+        <Setter Property="Source" Value="/Resources/Icons/close_fullscreen_noactive.png"/>
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Margin" Value="0,-5,10,0"/>
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsMouseOver, ElementName=CloseFullscreenButton}" Value="true">
+                <Setter Property="Source" Value="/Resources/Icons/close_fullscreen_active.png"/>
             </DataTrigger>
         </Style.Triggers>
     </Style>

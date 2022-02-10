@@ -20,6 +20,8 @@ namespace CarRental
     /// </summary>
     public partial class MainWindow : Window
     {
+        int Click = 0;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -45,6 +47,29 @@ namespace CarRental
             if (e.ChangedButton == MouseButton.Left)
             {
                 this.DragMove();
+            }
+        }
+
+        private void OpenFullscreenButtonMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            
+            if (Click == 0)
+            {
+                this.WindowState = WindowState.Maximized;
+                Click++;
+                OpenFullscreenButton.Visibility = Visibility.Collapsed;
+                CloseFullscreenButton.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void CloseFullscreenButtonMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Click == 1)
+            {
+                this.WindowState = WindowState.Normal;
+                Click--;
+                OpenFullscreenButton.Visibility = Visibility.Visible;
+                CloseFullscreenButton.Visibility = Visibility.Collapsed;
             }
         }
     }
