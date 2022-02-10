@@ -24,5 +24,20 @@ namespace CarRental
         {
             InitializeComponent();
         }
+
+        private void MinimizeButtonMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void CloseButtonMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void AutomobileButtonClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

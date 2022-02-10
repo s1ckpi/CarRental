@@ -104,5 +104,11 @@
     <Folder Include="Resources\Images\" />
     <Folder Include="Views\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\close_active.png" />
+    <Resource Include="Resources\Icons\close_noactive.png" />
+    <Resource Include="Resources\Icons\minimize_active.png" />
+    <Resource Include="Resources\Icons\minimize_noactive.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
