@@ -8,7 +8,7 @@
         Title="WheelsCompany"
         MinHeight="1000" MinWidth="1900"
         MaxHeight="1000" MaxWidth="1900"
-        WindowStartupLocation="CenterScreen" WindowStyle="None">
+        WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
     
     <Grid>
         <Grid.Background>
