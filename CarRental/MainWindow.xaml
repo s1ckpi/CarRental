@@ -46,25 +46,9 @@
             <Button x:Name="NewsButton" Style="{StaticResource MyButtonStyle}" FontSize="22.5" Click="AutomobileButtonClick">Новости</Button>
             <Button x:Name="AutomobileButton" Style="{StaticResource MyButtonStyle}" FontSize="22.5" Click="AutomobileButtonClick">Автомобили</Button>
         </StackPanel>
-
-        <StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Orientation="Vertical" x:Name="AuthMenuStackPanel">
-            <Border Background="White" CornerRadius="10" Width="210" Height="180">
-                <StackPanel Margin="0,2,0,0">
-                    <TextBlock Width="180" Margin="0,5,0,2.5" FontSize="14">Логин</TextBlock>
-                    <TextBox x:Name="LoginTextBox" Width="180" Margin="0,2.5,0,5" FontSize="14" BorderBrush="{x:Null}">
-                        <TextBox.Effect>
-                            <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
-                        </TextBox.Effect>
-                    </TextBox>
-                    <TextBlock Width="180" Margin="0,2.5,0,2.5" FontSize="14">Пароль</TextBlock>
-                    <PasswordBox Width="180" Margin="0,2.5,0,5" FontSize="14" BorderBrush="{x:Null}">
-                        <PasswordBox.Effect>
-                            <DropShadowEffect BlurRadius="20" ShadowDepth="5" Color="LightGray"/>
-                        </PasswordBox.Effect></PasswordBox>
-                    <Button x:Name="AuthButton" Style="{StaticResource MyButtonStyle}" Background="Transparent" Width="180" BorderBrush="{x:Null}" Foreground="#FFDC1430" Margin="0,15,0,10" FontSize="16">Войти</Button>
-                    <Button x:Name="RegButton" Style="{StaticResource MyButtonStyle}" Background="Transparent" Width="180" BorderBrush="{x:Null}" Foreground="#FFDC1430" Margin="0,-5,0,10" FontSize="16">Зарегистрироваться</Button>
-                </StackPanel>
-            </Border>
-        </StackPanel>
+        
+        
+        <Frame x:Name="MainFrame" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" ContentRendered="MainFrameContentRendered" NavigationUIVisibility="Hidden"></Frame>
+        <Frame x:Name="AuthMenuFrame" Grid.Column="0" Grid.Row="2" ContentRendered="AuthMenuFrameContentRendered" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

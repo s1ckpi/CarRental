@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarRental.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,7 @@ namespace CarRental
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.Navigate(new AuthPage());
         }
 
         private void MinimizeButtonMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -71,6 +73,16 @@ namespace CarRental
                 OpenFullscreenButton.Visibility = Visibility.Visible;
                 CloseFullscreenButton.Visibility = Visibility.Collapsed;
             }
+        }
+
+        private void AuthMenuFrameContentRendered(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainFrameContentRendered(object sender, EventArgs e)
+        {
+            
         }
     }
 }
