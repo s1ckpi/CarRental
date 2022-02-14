@@ -75,14 +75,14 @@ namespace CarRental
             }
         }
 
-        private void AuthMenuFrameContentRendered(object sender, EventArgs e)
+        private void MiniProfileFrameContentRendered(object sender, EventArgs e)
         {
-
+            MiniProfileFrame.Navigate(new MiniProfilePage());
         }
 
         private void MainFrameContentRendered(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

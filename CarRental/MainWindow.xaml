@@ -11,44 +11,40 @@
         WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
 
     <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FF232D3E"/>
-                <GradientStop Color="#FF161A21" Offset="1"/>
-                <GradientStop Color="#FF1D222C" Offset="0.5"/>
-            </LinearGradientBrush>
-        </Grid.Background>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="180"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition/>
-            <RowDefinition Height="200"/>
+            <RowDefinition Height="180"/>
         </Grid.RowDefinitions>
 
         <Grid x:Name="ToolBar" Background="Transparent" Grid.ColumnSpan="2" MouseDown="ToolBarMouseDown">
-            <TextBlock Margin="20,0,0,0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" Foreground="White">CarRental</TextBlock>
+            <TextBlock Margin="20,0,0,0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" Foreground="Crimson">CarRental</TextBlock>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="1">
+                <Image x:Name="MinimizeButton" Style="{StaticResource MinimizeButtonHover}" MouseLeftButtonDown="MinimizeButtonMouseLeftButtonDown"/>
+                <Image x:Name="OpenFullscreenButton" Style="{StaticResource OpenFullscreenButtonHover}" MouseLeftButtonDown="OpenFullscreenButtonMouseLeftButtonDown"/>
+                <Image x:Name="CloseFullscreenButton" Style="{StaticResource CloseFullscreenButtonHover}" MouseLeftButtonDown="CloseFullscreenButtonMouseLeftButtonDown"/>
+                <Image x:Name="CloseButton" Style="{StaticResource CloseButtonHover}" MouseLeftButtonDown="CloseButtonMouseLeftButtonDown"/>
+            </StackPanel>
         </Grid>
+        
         <Border BorderThickness="1" BorderBrush="Black" Height="1" Margin="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Top"/>
         <Border  BorderThickness="1" BorderBrush="Black" Height="990" Width="1" Margin="0" Grid.Row="1"  Grid.RowSpan="2" Grid.Column="0" HorizontalAlignment="Right"/>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="1">
-            <Image x:Name="MinimizeButton" Style="{StaticResource MinimizeButtonHover}" MouseLeftButtonDown="MinimizeButtonMouseLeftButtonDown"/>
-            <Image x:Name="OpenFullscreenButton" Style="{StaticResource OpenFullscreenButtonHover}" MouseLeftButtonDown="OpenFullscreenButtonMouseLeftButtonDown"/>
-            <Image x:Name="CloseFullscreenButton" Style="{StaticResource CloseFullscreenButtonHover}" MouseLeftButtonDown="CloseFullscreenButtonMouseLeftButtonDown"/>
-            <Image x:Name="CloseButton" Style="{StaticResource CloseButtonHover}" MouseLeftButtonDown="CloseButtonMouseLeftButtonDown"/>
-        </StackPanel>
+        
 
         <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
-            <Button x:Name="NewsButton" Style="{StaticResource MyButtonStyle}" FontSize="22.5" Click="AutomobileButtonClick">Новости</Button>
-            <Button x:Name="AutomobileButton" Style="{StaticResource MyButtonStyle}" FontSize="22.5" Click="AutomobileButtonClick">Автомобили</Button>
+            <Button x:Name="NewsButton" Style="{StaticResource MyButtonStyle}" Background="Transparent" FontSize="16" Click="AutomobileButtonClick" Foreground="Crimson" Cursor="Hand">Новости</Button>
+            <Button x:Name="AutomobileButton" Style="{StaticResource MyButtonStyle}" Background="Transparent" FontSize="16" Click="AutomobileButtonClick" Foreground="Crimson" Cursor="Hand">Автомобили</Button>
         </StackPanel>
-        
-        
-        <Frame x:Name="MainFrame" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" ContentRendered="MainFrameContentRendered" NavigationUIVisibility="Hidden"></Frame>
-        <Frame x:Name="AuthMenuFrame" Grid.Column="0" Grid.Row="2" ContentRendered="AuthMenuFrameContentRendered" NavigationUIVisibility="Hidden"/>
+
+
+        <Frame x:Name="MainFrame" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" ContentRendered="MainFrameContentRendered" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="MiniProfileFrame" Grid.Column="0" Grid.Row="2" ContentRendered="MiniProfileFrameContentRendered" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace CarRental.Views
 {
     /// <summary>
-    /// Логика взаимодействия для AuthPage.xaml
+    /// Логика взаимодействия для MiniProfilePage.xaml
     /// </summary>
-    public partial class AuthPage : Page
+    public partial class MiniProfilePage : Page
     {
-        public AuthPage()
+        public MiniProfilePage()
         {
             InitializeComponent();
-        }
-
-        private void CreateAccountTextBlockMouseDown(object sender, MouseButtonEventArgs e)
-        {
-
         }
     }
 }

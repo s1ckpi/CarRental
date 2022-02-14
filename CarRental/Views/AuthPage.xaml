@@ -8,27 +8,19 @@
       d:DesignHeight="700" d:DesignWidth="800"
       Title="AuthPage">
 
-    <Grid>
-        <StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Top" Orientation="Vertical" x:Name="AuthMenuStackPanel">
-            <StackPanel>
-                <TextBlock x:Name="AuthTextBlock" Width="350" Height="40" FontSize="25" Foreground="White">Авторизация</TextBlock>
-                <TextBlock x:Name="RegTextBlock" Width="350" Height="40" FontSize="25" Foreground="White">Регистрация</TextBlock>
-                <TextBox x:Name="AuthLoginOremailTextBox" Width="350" Height="40" Margin="0,25,0,0" InputScope="EmailUserName"></TextBox>
-                <TextBox x:Name="RegLoginTextBox" Width="350" Height="40" Margin="0,25,0,0" InputScope="EmailUserName"></TextBox>
-                <TextBox x:Name="RegEmailTextBox" Width="350" Height="40" Margin="0,25,0,0" InputScope="EmailUserName"></TextBox>
-                <PasswordBox x:Name="AuthPasswordBox"  Width="350" Height="40" Margin="0,25,0,0" ></PasswordBox>
-                <PasswordBox x:Name="RegPasswordBox"  Width="350" Height="40" Margin="0,25,0,0"></PasswordBox>
-                <PasswordBox x:Name="RegPasswordCheckedPasswordBox" Width="350" Height="40" Margin="0,25,0,0"></PasswordBox>
-                <CheckBox Width="350" Height="15" Margin="0,25,0,0" Content=" Remember Me" IsChecked="False"/>
-                <Button Style="{StaticResource SingInButton}" Width="350" Height="40" Content="Войти" Cursor="Hand" Foreground="Black"/>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Нету аккаунта?</TextBlock>
-                    <TextBlock>Создать аккаунт</TextBlock>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock>Есть аккаунт?</TextBlock>
-                    <TextBlock>Войти в аккаунт</TextBlock>
-                </StackPanel>
+    <Grid Grid.Row="2" Grid.Column="0" x:Name="AuthMenuGrid">
+        <TextBlock Width="40" Height="25" Margin="-236,-212.5,0,0" Style="{StaticResource PlaceholderLoginTextBlock}" Panel.ZIndex="1" Text="Login"></TextBlock>
+        <TextBlock Width="65" Height="20" Margin="-211,-87.5,0,0" Style="{StaticResource PlaceholderPasswordPasswordBox}" Panel.ZIndex="1" Text="Password"></TextBlock>
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock x:Name="AuthTextBlock" Width="300" Height="40" FontSize="25" Foreground="Crimson">Авторизация</TextBlock>
+            <TextBox x:Name="AuthLoginTextBox" Width="300" Height="40" Margin="0,25,0,0"></TextBox>
+            <TextBox x:Name="AuthPasswordTextBox"  Width="300" Height="40" Margin="0,25,0,0"></TextBox>
+            <CheckBox Width="300" Height="15" Margin="0,25,0,0" Content=" Remember Me" Foreground="Crimson" Background="White" BorderBrush="Crimson" IsChecked="False"/>
+            <Button Style="{StaticResource SingInButton}" Width="300" Height="40" Content="Войти" Cursor="Hand" Foreground="Crimson"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,80,0,0" HorizontalAlignment="Center">
+                <TextBlock FontSize="16" Margin="0,0,10,0">Нету аккаунта?</TextBlock>
+                <TextBlock x:Name="CreateAccountTextBlock" FontSize="16" Foreground="Crimson" MouseDown="CreateAccountTextBlockMouseDown" Cursor="Hand">Создать аккаунт</TextBlock>
             </StackPanel>
         </StackPanel>
     </Grid>
