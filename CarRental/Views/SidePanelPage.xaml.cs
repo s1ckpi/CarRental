@@ -16,18 +16,23 @@ using System.Windows.Shapes;
 namespace CarRental.Views
 {
     /// <summary>
-    /// Логика взаимодействия для AuthPage.xaml
+    /// Логика взаимодействия для SidePanelPage.xaml
     /// </summary>
-    public partial class AuthPage : Page
+    public partial class SidePanelPage : Page
     {
-        public AuthPage()
+        public SidePanelPage()
         {
             InitializeComponent();
         }
 
-        private void CreateAccountTextBlockMouseDown(object sender, MouseButtonEventArgs e)
+        private void AutomobileButtonClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new RegPage());
+
+        }
+
+        private void NewsButtonClick(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

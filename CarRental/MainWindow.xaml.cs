@@ -27,6 +27,8 @@ namespace CarRental
         {
             InitializeComponent();
             MainFrame.Navigate(new AuthPage());
+            MiniProfileFrame.Navigate(new MiniProfilePage());
+            SidePanelFrame.Navigate(new SidePanelPage());
         }
 
         private void MinimizeButtonMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -37,11 +39,6 @@ namespace CarRental
         private void CloseButtonMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.Close();
-        }
-
-        private void AutomobileButtonClick(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void ToolBarMouseDown(object sender, MouseButtonEventArgs e)
@@ -57,6 +54,7 @@ namespace CarRental
             
             if (Click == 0)
             {
+                CarRentalTitle.Margin = new Thickness(0,0,830,0);
                 this.WindowState = WindowState.Maximized;
                 Click++;
                 OpenFullscreenButton.Visibility = Visibility.Collapsed;
@@ -68,6 +66,7 @@ namespace CarRental
         {
             if (Click == 1)
             {
+                CarRentalTitle.Margin = new Thickness(0,0,590,0);
                 this.WindowState = WindowState.Normal;
                 Click--;
                 OpenFullscreenButton.Visibility = Visibility.Visible;
@@ -77,10 +76,15 @@ namespace CarRental
 
         private void MiniProfileFrameContentRendered(object sender, EventArgs e)
         {
-            MiniProfileFrame.Navigate(new MiniProfilePage());
+            
         }
 
         private void MainFrameContentRendered(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SidePanelFrameContentRendered(object sender, EventArgs e)
         {
 
         }

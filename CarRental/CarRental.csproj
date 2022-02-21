@@ -61,6 +61,12 @@
     <Compile Include="Views\MiniProfilePage.xaml.cs">
       <DependentUpon>MiniProfilePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\RegPage.xaml.cs">
+      <DependentUpon>RegPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SidePanelPage.xaml.cs">
+      <DependentUpon>SidePanelPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -82,6 +88,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MiniProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SidePanelPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -128,6 +142,9 @@
     <Resource Include="Resources\Icons\close_fullscreen_noactive.png" />
     <Resource Include="Resources\Icons\open_in_full_active.png" />
     <Resource Include="Resources\Icons\open_in_full_noactive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\right_arrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

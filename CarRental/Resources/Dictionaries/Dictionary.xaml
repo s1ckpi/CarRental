@@ -2,9 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 
-    <Style x:Key="MyButtonStyle" TargetType="Button">
+    <Style x:Key="AllButton" TargetType="Button">
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Height" Value="40"/>
         <Setter Property="Margin" Value="10"/>
         <Setter Property="Cursor"  Value="Hand"/>
         <Setter Property="Template">
@@ -13,6 +14,25 @@
                     <Border Name="border"
                         Background="{TemplateBinding Background}">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SidePanelButton" TargetType="Button">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Cursor"  Value="Hand"/>
+        <Setter Property="Background" Value="Crimson"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border"
+                        Background="{TemplateBinding Background}" CornerRadius="6">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -32,7 +52,28 @@
                         Background="White">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         <Border.Effect>
-                            <DropShadowEffect ShadowDepth="7" BlurRadius="20" Color="Black" Opacity="0.4"/>
+                            <DropShadowEffect ShadowDepth="2" BlurRadius="15" Color="Black" Opacity="0.6"/>
+                        </Border.Effect>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SingUpButton" TargetType="Button">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Margin" Value="10,25,10,10"/>
+        <Setter Property="Cursor"  Value="Hand"/>
+        <Setter Property="FontSize"  Value="16"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border" CornerRadius="15" 
+                        Background="White">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="2" BlurRadius="15" Color="Black" Opacity="0.6"/>
                         </Border.Effect>
                     </Border>
                 </ControlTemplate>
@@ -52,7 +93,33 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="PlaceholderPasswordPasswordBox" TargetType="TextBlock">
+    <Style x:Key="PlaceholderRegLoginTextBlock" TargetType="TextBlock">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Foreground" Value="DarkGray"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Text, ElementName=RegLoginTextBox}" Value="">
+                <Setter Property="Visibility" Value="Visible"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="PlaceholderRegConfirmPasswordTextBlock" TargetType="TextBlock">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Foreground" Value="DarkGray"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Margin" Value="0,45,0,0"/>
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Text, ElementName=RegConfirmPasswordTextBox}" Value="">
+                <Setter Property="Visibility" Value="Visible"/>
+                <Setter Property="Margin" Value="0,65,0,0"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="PlaceholderPasswordTextBlock" TargetType="TextBlock">
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="Foreground" Value="DarkGray"/>
         <Setter Property="FontSize" Value="16"/>
@@ -60,6 +127,34 @@
         <Setter Property="Visibility" Value="Collapsed"/>
         <Style.Triggers>
             <DataTrigger Binding="{Binding Text, ElementName=AuthPasswordTextBox}" Value="">
+                <Setter Property="Visibility" Value="Visible"/>
+                <Setter Property="Margin" Value="0,65,0,0"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="PlaceholderRegPasswordTextBlock" TargetType="TextBlock">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Foreground" Value="DarkGray"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Margin" Value="0,45,0,0"/>
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Text, ElementName=RegPasswordTextBox}" Value="">
+                <Setter Property="Visibility" Value="Visible"/>
+                <Setter Property="Margin" Value="0,65,0,0"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="PlaceholderRegEmailTextBlock" TargetType="TextBlock">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Foreground" Value="DarkGray"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Margin" Value="0,45,0,0"/>
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Text, ElementName=RegEmailTextBox}" Value="">
                 <Setter Property="Visibility" Value="Visible"/>
                 <Setter Property="Margin" Value="0,65,0,0"/>
             </DataTrigger>
