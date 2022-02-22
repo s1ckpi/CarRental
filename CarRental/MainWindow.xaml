@@ -7,18 +7,19 @@
         mc:Ignorable="d"
         Title="WheelsCompany"
         MinHeight="600" MinWidth="800"
+        MaxHeight="1040" MaxWidth="1920"
         WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
 
     <Grid Background="#cccdd1">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="300"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition/>
             <RowDefinition Height="180"/>
         </Grid.RowDefinitions>
 
@@ -40,8 +41,6 @@
         </Grid>
 
 
-        <Frame Name="SidePanelFrame" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" NavigationUIVisibility="Hidden" ContentRendered="SidePanelFrameContentRendered"/>
-        <Frame x:Name="MainFrame" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" ContentRendered="MainFrameContentRendered" NavigationUIVisibility="Hidden"/>
-        <Frame x:Name="MiniProfileFrame" Grid.Column="0" Grid.Row="2" ContentRendered="MiniProfileFrameContentRendered" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="MainFrame" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" ContentRendered="MainFrameContentRendered" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

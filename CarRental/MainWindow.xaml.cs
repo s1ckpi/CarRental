@@ -27,8 +27,6 @@ namespace CarRental
         {
             InitializeComponent();
             MainFrame.Navigate(new AuthPage());
-            MiniProfileFrame.Navigate(new MiniProfilePage());
-            SidePanelFrame.Navigate(new SidePanelPage());
         }
 
         private void MinimizeButtonMouseLeftButtonDown(object sender, MouseButtonEventArgs e)

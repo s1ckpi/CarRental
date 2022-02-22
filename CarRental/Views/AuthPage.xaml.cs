@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarRental.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,11 @@ namespace CarRental.Views
     /// </summary>
     public partial class AuthPage : Page
     {
-        public AuthPage()
+
+        Core db = new Core();
+        List<Users> arrayUsers;
+
+        public AuthPage() 
         {
             InitializeComponent();
         }
@@ -28,6 +33,24 @@ namespace CarRental.Views
         private void CreateAccountTextBlockMouseDown(object sender, MouseButtonEventArgs e)
         {
             NavigationService.Navigate(new RegPage());
+        }
+
+        private void SingInButtonClick(object sender, RoutedEventArgs e)
+        {
+            //считаем количество записей в таблице с заданными параметрами (логин, пароль)
+            int count = db.context.Users.Where(x => x.Login == AuthLoginTextBox.Text && x.Password == AuthPasswordTextBox.Text).Count();
+
+            Console.WriteLine(count);
+
+            if (count == 0)
+            {
+                MessageBox.Show("Такой пользователь отсутствует!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                NavigationService.Navigate(new AutomobilePage());
+                AuthMenuGrid.Margin = new Thickness(40, 20, 20, 20);
+            }
         }
     }
 }
