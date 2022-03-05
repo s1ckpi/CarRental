@@ -23,8 +23,6 @@ namespace CarRental.Views
     {
 
         Core db = new Core();
-        List<Users> arrayUsers;
-
         public AuthPage() 
         {
             InitializeComponent();
@@ -37,19 +35,46 @@ namespace CarRental.Views
 
         private void SingInButtonClick(object sender, RoutedEventArgs e)
         {
-            //считаем количество записей в таблице с заданными параметрами (логин, пароль)
-            int count = db.context.Users.Where(x => x.Login == AuthLoginTextBox.Text && x.Password == AuthPasswordTextBox.Text).Count();
+            ////считаем количество записей в таблице с заданными параметрами (логин, пароль)
+            //int count = db.context.Users.Where(x => x.Login == AuthLoginTextBox.Text && x.Password == AuthPasswordTextBox.Text).Count();
 
-            Console.WriteLine(count);
+            //Console.WriteLine(count);
 
-            if (count == 0)
+            //if ()
+            //{
+
+            //}
+            //if (count == 0)
+            //{
+            //    MessageBox.Show("Такой пользователь отсутствует!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+            //}
+            //else
+            //{
+            //    NavigationService.Navigate(new AutomobilePage());
+            //    AuthMenuGrid.Margin = new Thickness(40, 20, 20, 20);
+            //}
+
+            List<Users> arrUser = db.context.Users.Where(x => x.Login == AuthLoginTextBox.Text && x.Password == AuthPasswordTextBox.Text).ToList();
+            int countUsers = arrUser.Count();
+
+            if (countUsers == 0)
             {
-                MessageBox.Show("Такой пользователь отсутствует!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Сбой", "Такого пользователь нет", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
-                NavigationService.Navigate(new AutomobilePage());
-                AuthMenuGrid.Margin = new Thickness(40, 20, 20, 20);
+                if (arrUser.First().Role.IdRole == 1)
+                {
+                    Properties.Settings.Default.currentUser = AuthLoginTextBox.Text;
+                    Properties.Settings.Default.Save();
+                    NavigationService.Navigate(new AdminPage());
+                }
+                else
+                {
+                    Properties.Settings.Default.currentUser = AuthLoginTextBox.Text;
+                    Properties.Settings.Default.Save();
+                    NavigationService.Navigate(new AutomobilePage());
+                }
             }
         }
     }

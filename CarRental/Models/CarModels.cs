@@ -21,8 +21,9 @@ namespace CarRental.Models
         }
     
         public int IdCarModels { get; set; }
-        public string CarModels1 { get; set; }
+        public string Model { get; set; }
         public string Price { get; set; }
+        public string Deposit { get; set; }
         public Nullable<double> Acceleration { get; set; }
         public Nullable<int> MaxSpeed { get; set; }
         public Nullable<int> YearOfIssue { get; set; }

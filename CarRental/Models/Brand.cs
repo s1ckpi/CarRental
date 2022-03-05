@@ -22,6 +22,7 @@ namespace CarRental.Models
     
         public int IdBrand { get; set; }
         public string Brand1 { get; set; }
+        public string BrandLogo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cars> Cars { get; set; }

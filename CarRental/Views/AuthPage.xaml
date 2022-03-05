@@ -14,8 +14,8 @@
         <Border Background="White" BorderThickness="0" CornerRadius="20">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock x:Name="AuthTextBlock" Width="150" Height="40" FontSize="25" Foreground="Crimson" Margin="0,0,0,0">Авторизация</TextBlock>
-            <TextBox x:Name="AuthLoginTextBox" Width="300" Height="40" Margin="0,25,0,0"></TextBox>
-            <TextBox x:Name="AuthPasswordTextBox"  Width="300" Height="40" Margin="0,25,0,0"></TextBox>
+            <TextBox x:Name="AuthLoginTextBox" Width="300" Height="40" Margin="0,25,0,0">admin</TextBox>
+                <TextBox x:Name="AuthPasswordTextBox"  Width="300" Height="40" Margin="0,25,0,0">admin</TextBox>
             <CheckBox Width="300" Height="15" Margin="0,25,0,0" Content=" Remember Me" Foreground="Crimson" Background="White" BorderBrush="Crimson" IsChecked="False"/>
             <Button x:Name="SingInButton" Style="{StaticResource SingInButton}" Width="300" Height="40" Content="Войти" Cursor="Hand" Foreground="Crimson" Click="SingInButtonClick"/>
 

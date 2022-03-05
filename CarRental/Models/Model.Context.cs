@@ -31,6 +31,7 @@ namespace CarRental.Models
         public virtual DbSet<Cars> Cars { get; set; }
         public virtual DbSet<Clients> Clients { get; set; }
         public virtual DbSet<Color> Color { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }
 }

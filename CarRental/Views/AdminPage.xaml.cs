@@ -17,13 +17,24 @@ using System.Windows.Shapes;
 namespace CarRental.Views
 {
     /// <summary>
-    /// Логика взаимодействия для AutomobilePage.xaml
+    /// Логика взаимодействия для AdminPage.xaml
     /// </summary>
-    public partial class AutomobilePage : Page
+    public partial class AdminPage : Page
     {
-        public AutomobilePage()
+        Core db = new Core();
+        List<CarModels> arrayCarModels;
+        List<Brand> arrayBrand;
+        public AdminPage()
         {
             InitializeComponent();
+            arrayCarModels = db.context.CarModels.ToList();
+            arrayBrand = db.context.Brand.ToList();
+            foreach (var item in arrayBrand)
+            {
+
+                Console.WriteLine(item.ImageBrandLogoPath);
+            }
+            ListAutomobileListView.ItemsSource = arrayCarModels;
         }
 
         private void ButtonEditClick(object sender, RoutedEventArgs e)
@@ -32,6 +43,11 @@ namespace CarRental.Views
         }
 
         private void ButtonDeleteClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddAutomobileButtonClick(object sender, RoutedEventArgs e)
         {
 
         }

@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarRental"
         mc:Ignorable="d"
-        Title="WheelsCompany"
+        Title="CarRental"
         MinHeight="600" MinWidth="800"
         MaxHeight="1040" MaxWidth="1920"
+        Background="Transparent" AllowsTransparency="True"
         WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
 
-    <Grid Background="#cccdd1">
-
+    <Border Background="#cccdd1" CornerRadius="10" BorderThickness="0" BorderBrush="Transparent">
+        <Grid Background="Transparent">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition/>
@@ -23,24 +24,24 @@
             <RowDefinition Height="180"/>
         </Grid.RowDefinitions>
 
-        <Grid x:Name="ToolBar" Background="Transparent" Grid.ColumnSpan="2" MouseDown="ToolBarMouseDown">
-            
-            <Border Background="White" BorderThickness="0" CornerRadius="0,0,20,20">
-                
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="1">
-                <TextBlock x:Name="CarRentalTitle" Margin="0,0,590,0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" Foreground="Crimson">CarRental</TextBlock>
-                <Image x:Name="MinimizeButton" Style="{StaticResource MinimizeButtonHover}" MouseLeftButtonDown="MinimizeButtonMouseLeftButtonDown"/>
-                <Image x:Name="OpenFullscreenButton" Style="{StaticResource OpenFullscreenButtonHover}" MouseLeftButtonDown="OpenFullscreenButtonMouseLeftButtonDown"/>
-                <Image x:Name="CloseFullscreenButton" Style="{StaticResource CloseFullscreenButtonHover}" MouseLeftButtonDown="CloseFullscreenButtonMouseLeftButtonDown"/>
-                <Image x:Name="CloseButton" Style="{StaticResource CloseButtonHover}" MouseLeftButtonDown="CloseButtonMouseLeftButtonDown"/>
-            </StackPanel>
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="10" ShadowDepth="0" Color="Black" Opacity="0.2"/>
-                </Border.Effect>
-            </Border>
+            <Grid x:Name="ToolBar" Background="Transparent" Grid.ColumnSpan="2" MouseDown="ToolBarMouseDown">
+
+                <Border Background="White" BorderThickness="0" CornerRadius="10">
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="1">
+                        <TextBlock x:Name="CarRentalTitle" Margin="0,0,590,0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" Foreground="Crimson">CarRental</TextBlock>
+                        <Image x:Name="MinimizeButton" Style="{StaticResource MinimizeButtonHover}" MouseLeftButtonDown="MinimizeButtonMouseLeftButtonDown"/>
+                        <Image x:Name="OpenFullscreenButton" Style="{StaticResource OpenFullscreenButtonHover}" MouseLeftButtonDown="OpenFullscreenButtonMouseLeftButtonDown"/>
+                        <Image x:Name="CloseFullscreenButton" Style="{StaticResource CloseFullscreenButtonHover}" MouseLeftButtonDown="CloseFullscreenButtonMouseLeftButtonDown"/>
+                        <Image x:Name="CloseButton" Style="{StaticResource CloseButtonHover}" MouseLeftButtonDown="CloseButtonMouseLeftButtonDown"/>
+                    </StackPanel>
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="0" Color="Black" Opacity="0.2"/>
+                    </Border.Effect>
+                </Border>
+            </Grid>
+
+            <Frame x:Name="MainFrame" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" ContentRendered="MainFrameContentRendered" NavigationUIVisibility="Hidden"/>
         </Grid>
-
-
-        <Frame x:Name="MainFrame" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" ContentRendered="MainFrameContentRendered" NavigationUIVisibility="Hidden"/>
-    </Grid>
+    </Border>
 </Window>
