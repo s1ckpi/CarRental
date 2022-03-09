@@ -13,7 +13,7 @@ namespace CarRental.Models
             get
             {
                 string BrandLogoImagePath;
-                BrandLogoImagePath = "..\\..\\Resources\\Images\\" + BrandLogo.Trim();
+                BrandLogoImagePath = "..\\..\\Assets\\Images\\" + BrandLogo.Trim();
                 Console.WriteLine(BrandLogoImagePath);
                 return BrandLogoImagePath;
             }

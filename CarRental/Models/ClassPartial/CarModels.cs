@@ -13,7 +13,7 @@ namespace CarRental.Models
             get
             {
                 string productImage;
-                productImage = "..\\..\\Resources\\Images\\" + Image.Trim();
+                productImage = "..\\..\\Assets\\Images\\" + Image.Trim();
                 return productImage;
             }
         }

@@ -121,7 +121,7 @@
     <Compile Include="Views\RegPage.xaml.cs">
       <DependentUpon>RegPage.xaml</DependentUpon>
     </Compile>
-    <Page Include="Resources\Dictionaries\Dictionary.xaml">
+    <Page Include="Assets\Dictionaries\Dictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -193,55 +193,55 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\Fonts\" />
+    <Folder Include="Assets\Fonts\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Icons\close_active.png" />
-    <Resource Include="Resources\Icons\close_noactive.png" />
-    <Resource Include="Resources\Icons\minimize_active.png" />
-    <Resource Include="Resources\Icons\minimize_noactive.png" />
+    <Resource Include="Assets\Icons\close_active.png" />
+    <Resource Include="Assets\Icons\close_noactive.png" />
+    <Resource Include="Assets\Icons\minimize_active.png" />
+    <Resource Include="Assets\Icons\minimize_noactive.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Icons\close_fullscreen_active.png" />
-    <Resource Include="Resources\Icons\close_fullscreen_noactive.png" />
-    <Resource Include="Resources\Icons\open_in_full_active.png" />
-    <Resource Include="Resources\Icons\open_in_full_noactive.png" />
+    <Resource Include="Assets\Icons\close_fullscreen_active.png" />
+    <Resource Include="Assets\Icons\close_fullscreen_noactive.png" />
+    <Resource Include="Assets\Icons\open_in_full_active.png" />
+    <Resource Include="Assets\Icons\open_in_full_noactive.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Icons\right_arrow.png" />
+    <Resource Include="Assets\Icons\right_arrow.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\Brand\Aston Martin.png" />
-    <Resource Include="Resources\Images\Brand\Bugatti.png" />
-    <Resource Include="Resources\Images\Brand\Chevrolet Corvette .png" />
-    <Resource Include="Resources\Images\Brand\Koenigsegg.png" />
-    <Resource Include="Resources\Images\Brand\Maserati.png" />
-    <Resource Include="Resources\Images\Brand\McLaren.png" />
-    <Resource Include="Resources\Images\Brand\Porsche.png" />
-    <Resource Include="Resources\Images\Brand\Rolls-royce.png" />
-    <Resource Include="Resources\Images\Car\Above side\911 GT3 above.png" />
-    <Resource Include="Resources\Images\Car\Above side\Agera RS above.png" />
-    <Resource Include="Resources\Images\Car\Above side\Chiron above.png" />
-    <Resource Include="Resources\Images\Car\Above side\Corvette C8 above.png" />
-    <Resource Include="Resources\Images\Car\Above side\DB5 above.png" />
-    <Resource Include="Resources\Images\Car\Above side\Gawn above.png" />
-    <Resource Include="Resources\Images\Car\Above side\Ghost above.png" />
-    <Resource Include="Resources\Images\Car\Above side\MC20 above.png" />
-    <Resource Include="Resources\Images\Car\Above side\McLaren P1 above.png" />
-    <Resource Include="Resources\Images\Car\Above side\Taycan Turbo S above.png" />
-    <Resource Include="Resources\Images\Car\Front side\911 GT3.png" />
-    <Resource Include="Resources\Images\Car\Front side\Agera RS.png" />
-    <Resource Include="Resources\Images\Car\Front side\Chiron.png" />
-    <Resource Include="Resources\Images\Car\Front side\Corvette C8.png" />
-    <Resource Include="Resources\Images\Car\Front side\Dawn.png" />
-    <Resource Include="Resources\Images\Car\Front side\DB5.png" />
-    <Resource Include="Resources\Images\Car\Front side\Ghost.png" />
-    <Resource Include="Resources\Images\Car\Front side\MC20.png" />
-    <Resource Include="Resources\Images\Car\Front side\P1.png" />
-    <Resource Include="Resources\Images\Car\Front side\Taycan Turbo S.png" />
+    <Resource Include="Assets\Images\Brand\Aston Martin.png" />
+    <Resource Include="Assets\Images\Brand\Bugatti.png" />
+    <Resource Include="Assets\Images\Brand\Chevrolet Corvette .png" />
+    <Resource Include="Assets\Images\Brand\Koenigsegg.png" />
+    <Resource Include="Assets\Images\Brand\Maserati.png" />
+    <Resource Include="Assets\Images\Brand\McLaren.png" />
+    <Resource Include="Assets\Images\Brand\Porsche.png" />
+    <Resource Include="Assets\Images\Brand\Rolls-royce.png" />
+    <Resource Include="Assets\Images\Car\Above side\911 GT3 above.png" />
+    <Resource Include="Assets\Images\Car\Above side\Agera RS above.png" />
+    <Resource Include="Assets\Images\Car\Above side\Chiron above.png" />
+    <Resource Include="Assets\Images\Car\Above side\Corvette C8 above.png" />
+    <Resource Include="Assets\Images\Car\Above side\DB5 above.png" />
+    <Resource Include="Assets\Images\Car\Above side\Gawn above.png" />
+    <Resource Include="Assets\Images\Car\Above side\Ghost above.png" />
+    <Resource Include="Assets\Images\Car\Above side\MC20 above.png" />
+    <Resource Include="Assets\Images\Car\Above side\McLaren P1 above.png" />
+    <Resource Include="Assets\Images\Car\Above side\Taycan Turbo S above.png" />
+    <Resource Include="Assets\Images\Car\Front side\911 GT3.png" />
+    <Resource Include="Assets\Images\Car\Front side\Agera RS.png" />
+    <Resource Include="Assets\Images\Car\Front side\Chiron.png" />
+    <Resource Include="Assets\Images\Car\Front side\Corvette C8.png" />
+    <Resource Include="Assets\Images\Car\Front side\Dawn.png" />
+    <Resource Include="Assets\Images\Car\Front side\DB5.png" />
+    <Resource Include="Assets\Images\Car\Front side\Ghost.png" />
+    <Resource Include="Assets\Images\Car\Front side\MC20.png" />
+    <Resource Include="Assets\Images\Car\Front side\P1.png" />
+    <Resource Include="Assets\Images\Car\Front side\Taycan Turbo S.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\Model.Context.tt">
