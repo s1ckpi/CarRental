@@ -18,6 +18,12 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,15,0">
+            <ComboBox Width="475"></ComboBox>
+            <ComboBox Width="475"></ComboBox>
+            <TextBox Width="455"></TextBox>
+        </StackPanel>
+
         <ListView Grid.Row="1" Name="ListAutomobileListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderThickness="0">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -35,13 +41,13 @@
                             <Image Source="{Binding ImageCarPath}" Height="475" Width="475"/>
                             <StackPanel Grid.Column="1" Width="210">
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="{Binding ImageBrandLogoPath}" Width="50" Height="50"/>
-                                    <TextBlock x:Name="NameCarModelsTextBlock" Text="{Binding Model}" Style="{StaticResource PriceTextBlock}"></TextBlock>
+                                    <Image Source="{Binding ImageBrandLogoPath}" HorizontalAlignment="Left" Width="30" Height="30"/>
+                                    <TextBlock x:Name="NameCarModelsTextBlock" Text="{Binding Model}" Style="{StaticResource PriceTextBlock}" TextWrapping="Wrap"></TextBlock>
                                 </StackPanel>
-                                <TextBlock Text="{Binding Acceleration}" Style="{StaticResource PriceTextBlock}"></TextBlock>
                                 <StackPanel Orientation="Vertical">
-                                    <TextBlock Text="{Binding Price, StringFormat='Цена: {0} ₽' }" Style="{StaticResource PriceTextBlock}"></TextBlock>
-                                    <TextBlock Text="{Binding Deposit, StringFormat='Залог: {0} ₽' }" Style="{StaticResource PriceTextBlock}"></TextBlock>
+                                    <TextBlock Text="{Binding Acceleration, StringFormat='0-100 км/ч: {0} сек' }" Style="{StaticResource PriceTextBlock}" TextWrapping="Wrap"></TextBlock>
+                                    <TextBlock Text="{Binding Price, StringFormat='Цена: {0} ₽' }" Style="{StaticResource PriceTextBlock}" TextWrapping="Wrap"></TextBlock>
+                                    <TextBlock Text="{Binding Deposit, StringFormat='Залог: {0} ₽' }" Style="{StaticResource PriceTextBlock}" TextWrapping="Wrap"></TextBlock>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
                                     <Button Content="Редактировать" Name="ButtonEdit" Click="ButtonEditClick" Style="{StaticResource AllButton}"></Button>

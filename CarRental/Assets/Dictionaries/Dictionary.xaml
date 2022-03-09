@@ -13,7 +13,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border Name="border"
-                        Background="{TemplateBinding Background}" CornerRadius="10">
+                        Background="{TemplateBinding Background}" CornerRadius="5">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                 </ControlTemplate>
@@ -267,5 +267,6 @@
         <Setter Property="Foreground" Value="Crimson"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Margin" Value="0,10,0,0"/>
     </Style>
 </ResourceDictionary>
