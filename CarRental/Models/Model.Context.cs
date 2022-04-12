@@ -27,6 +27,7 @@ namespace CarRental.Models
     
         public virtual DbSet<BeetwenCarsClients> BeetwenCarsClients { get; set; }
         public virtual DbSet<Brand> Brand { get; set; }
+        public virtual DbSet<CarcassType> CarcassType { get; set; }
         public virtual DbSet<CarModels> CarModels { get; set; }
         public virtual DbSet<Cars> Cars { get; set; }
         public virtual DbSet<Clients> Clients { get; set; }

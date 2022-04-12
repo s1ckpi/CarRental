@@ -1,0 +1,117 @@
+﻿<Page x:Class="CarRental.Views.AddEditAutomobilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CarRental.Views"
+      mc:Ignorable="d" 
+      Background="Transparent"
+      MinHeight="600" MinWidth="800"
+      MaxHeight="1040" MaxWidth="1920"
+      Title="AddEditAutomobilePage">
+
+    <Grid Margin="-700,250,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="TitleStackPanel" Margin="0,-750,0,0">
+            <TextBlock Text="Бренд: " IsHitTestVisible="False"  HorizontalAlignment="Right" Width="45" Margin="65,10,0,0"/>
+            <TextBox x:Name="BrandTextBox" Width="300" Height="40" TextWrapping="Wrap" Text="{Binding Brand.BrandName}" FontSize="14"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-75,-650,0,0">
+            <TextBlock Text="Модель: " IsHitTestVisible="False" Width="55" Margin="130,10,0,0"/>
+            <TextBox x:Name="ModelTextBox" Width="300" Height="40" TextWrapping="Wrap"  Text="{Binding CarModels.Model}"/>
+        </StackPanel>
+
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,-550,0,0">
+            <TextBlock Text="Цена: " IsHitTestVisible="False" Width="35" Margin="50,10,0,0"/>
+            <TextBox x:Name="PriceTextBox" Width="300" Height="40" TextWrapping="Wrap" Text="{Binding CarModels.Price}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15,-450,0,0">
+            <TextBlock Text="Депозит: " IsHitTestVisible="False" Width="55" Margin="40,10,0,0"/>
+            <TextBox x:Name="DepositTextBox" Width="300" Height="40" TextWrapping="Wrap" Text="{Binding CarModels.Deposit}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-30,-350,0,0">
+            <TextBlock Text="Разгон до 100 км/ч:" IsHitTestVisible="False" Margin="25,10,0,0" Width="115"/>
+            <TextBox TextWrapping="Wrap" Height="40" Width="300" x:Name="AccelerationTextBox" Text="{Binding CarModels.Acceleration}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-30,-250,0,0">
+            <TextBlock Text="Максимальная скорость:" IsHitTestVisible="False" Margin="-5,10,0,0" Width="145"/>
+            <TextBox TextWrapping="Wrap" Height="40" Width="300" x:Name="MaxSpeedTextBox" Text="{Binding CarModels.MaxSpeed}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="00,-150,0,0">
+            <TextBlock Text="Год выпуска:" IsHitTestVisible="False" Margin="30,10,0,0" Width="80"/>
+            <TextBox TextWrapping="Wrap" Height="40" Width="300" x:Name="YearOfIssueTextBox" Text="{Binding CarModels.YearOfIssue}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="00,-050,0,0">
+            <TextBlock Text="Цвет:" IsHitTestVisible="False" Margin="71,10,0,0" Width="38"/>
+            <ComboBox Height="40" Width="300" x:Name="ColorComboBox" Text="{Binding Color.Color1}" SelectedIndex="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <ComboBoxItem>Белый</ComboBoxItem>
+                <ComboBoxItem>Чёрынй</ComboBoxItem>
+                <ComboBoxItem>Серый</ComboBoxItem>
+                <ComboBoxItem>Фиолетовый</ComboBoxItem>
+                <ComboBoxItem>Красный</ComboBoxItem>
+                <ComboBoxItem>Жёлтый</ComboBoxItem>
+                <ComboBoxItem>Зелёный</ComboBoxItem>
+                <ComboBoxItem>Голубой</ComboBoxItem>
+                <ComboBoxItem>Синий</ComboBoxItem>
+                <ComboBoxItem>Серебрянный</ComboBoxItem>
+                <ComboBoxItem>Золотой</ComboBoxItem>
+                <ComboBoxItem>Оранжевый</ComboBoxItem>
+                <ComboBoxItem>Розовый</ComboBoxItem>
+                <ComboBoxItem>Малиновый</ComboBoxItem>
+                <ComboBoxItem>Тёмно синий</ComboBoxItem>
+                <ComboBoxItem>Тёмно зелёный</ComboBoxItem>
+                <ComboBoxItem>Тёмно красный</ComboBoxItem>
+                <ComboBoxItem>Тёмно фиолетовый</ComboBoxItem>
+                <ComboBoxItem>Тёмно голубой</ComboBoxItem>
+                <ComboBoxItem>Тёмно оранжевый</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="00,50,0,0">
+            <TextBlock Text="Кузов:" IsHitTestVisible="False" Margin="64,10,0,0" Width="45"/>
+            <ComboBox Height="40" Width="300" x:Name="CarcassComboBox" Text="{Binding CarcassType.CarcassType1}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <ComboBoxItem>Седан</ComboBoxItem>
+                <ComboBoxItem>Хэтчбек</ComboBoxItem>
+                <ComboBoxItem>Универсал</ComboBoxItem>
+                <ComboBoxItem>Лифтбэк</ComboBoxItem>
+                <ComboBoxItem>Купе</ComboBoxItem>
+                <ComboBoxItem>Кабриолет</ComboBoxItem>
+                <ComboBoxItem>Родстер</ComboBoxItem>
+                <ComboBoxItem>Тарга</ComboBoxItem>
+                <ComboBoxItem>Лимузин</ComboBoxItem>
+                <ComboBoxItem>Стретч</ComboBoxItem>
+                <ComboBoxItem>Внедорожник</ComboBoxItem>
+                <ComboBoxItem>Кроссовер</ComboBoxItem>
+                <ComboBoxItem>Пикап</ComboBoxItem>
+                <ComboBoxItem>Фургон</ComboBoxItem>
+                <ComboBoxItem>Минивэн</ComboBoxItem>
+                <ComboBoxItem>Микроавтобус</ComboBoxItem>
+                <ComboBoxItem>Автобус</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel x:Name="ImageAutomobileStackPanel" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1000,-650,0,0">
+            <Image x:Name="ImageAutomobole" Height="300" Margin="110,0,0,0" Source="{Binding ImagePath}"/>
+            <Button x:Name="SelectImageAutomoboleButton" Click="SelectImageAutomoboleButtonClick" Content="Выберите изображение автомобиля" Width="220" Height="25" Margin="110,10,0,0" />
+        </StackPanel>
+
+        <StackPanel x:Name="ImageAutomobileAboveStackPanel" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1000,50,0,0">
+            <Image x:Name="ImageAutomobileAbove" Height="300" Margin="110,0,0,0" Source="{Binding ImagePath}"/>
+            <Button x:Name="SelectImageAutomobileAboveButton" Click="SelectImageAutomobileAboveButtonClick" Content="Выберите изображение автомобиля сверху" Width="265" Height="25" Margin="110,10,0,0"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="122,135,0,0">
+            <Button x:Name="AddServiceButton" Width="200" Height="35" Click="AddServiceButtonClick">Добавить</Button>
+        </StackPanel>
+
+        <StackPanel>
+            <Button x:Name="BackButton" Margin="0,400,600,0" Click="BackButtonClick">Назад</Button>
+        </StackPanel>
+    </Grid>
+</Page>

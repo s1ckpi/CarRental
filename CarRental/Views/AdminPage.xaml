@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:CarRental.Views"
       mc:Ignorable="d" 
       Background="Transparent"
-      d:DesignHeight="450" d:DesignWidth="800"
+      MinHeight="600" MinWidth="800"
+      MaxHeight="1040" MaxWidth="1920"
       Title="AdminPage">
 
     <Grid>
@@ -18,13 +19,20 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,15,0">
-            <ComboBox Width="475"></ComboBox>
-            <ComboBox Width="475"></ComboBox>
-            <TextBox Width="455"></TextBox>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+            <ComboBox x:Name="CarcassComboBox" Width="330" Height="50" Margin="0,0,10,0"></ComboBox>
+            <ComboBox x:Name="SortComboBox" Width="330" Height="50" Margin="0,0,10,0">
+                <ComboBoxItem>Всё</ComboBoxItem>
+                <ComboBoxItem>от 0 до 50 000</ComboBoxItem>
+                <ComboBoxItem>от 50 000 до 100 000</ComboBoxItem>
+                <ComboBoxItem>от 100 000 до 150 000</ComboBoxItem>
+            </ComboBox>
+            <ComboBox x:Name="FilterComboBox" Width="330" Height="50" Margin="0,0,10,0"></ComboBox>
+            <TextBox Style="{StaticResource SearchTextBox}" x:Name="SearchTextBox" Width="330" Height="50"></TextBox>
         </StackPanel>
-
-        <ListView Grid.Row="1" Name="ListAutomobileListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderThickness="0">
+        
+        <Border Grid.Row="1" Background="White" CornerRadius="20,20,20,20" Margin="20,10,20,5">
+        <ListView Grid.Row="1" Name="ListAutomobileListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderThickness="0" Margin="0,5,0,0">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
@@ -32,26 +40,29 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="Crimson" Background="White" CornerRadius="10" Padding="5" BorderThickness="2">
-                        <Grid>
+                        <Border BorderBrush="Crimson" Background="{Binding BackColor}" CornerRadius="10" Padding="5" BorderThickness="2" Margin="0,15,0,0">
+                        <Grid Width="590" Height="230">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Image Source="{Binding ImageCarPath}" Height="475" Width="475"/>
-                            <StackPanel Grid.Column="1" Width="210">
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="{Binding ImageBrandLogoPath}" HorizontalAlignment="Left" Width="30" Height="30"/>
-                                    <TextBlock x:Name="NameCarModelsTextBlock" Text="{Binding Model}" Style="{StaticResource PriceTextBlock}" TextWrapping="Wrap"></TextBlock>
-                                </StackPanel>
-                                <StackPanel Orientation="Vertical">
-                                    <TextBlock Text="{Binding Acceleration, StringFormat='0-100 км/ч: {0} сек' }" Style="{StaticResource PriceTextBlock}" TextWrapping="Wrap"></TextBlock>
-                                    <TextBlock Text="{Binding Price, StringFormat='Цена: {0} ₽' }" Style="{StaticResource PriceTextBlock}" TextWrapping="Wrap"></TextBlock>
-                                    <TextBlock Text="{Binding Deposit, StringFormat='Залог: {0} ₽' }" Style="{StaticResource PriceTextBlock}" TextWrapping="Wrap"></TextBlock>
-                                </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Brand.BrandName}" Style="{StaticResource BrandTextBlock}"/>
+                                <TextBlock x:Name="NameCarModelsTextBlock" Text="{Binding CarModels.Model}" Style="{StaticResource ModelTextBlock}"/>
+                            </StackPanel>
+                            <Image Source="{Binding CarModels.ImageCarPath}" Height="260" Width="260"/>
+                            <StackPanel Grid.Column="1" Width="280">
+                                    <StackPanel Orientation="Vertical" Margin="0,-5,0,0">
+                                    <TextBlock Text="{Binding Color.ColorName, StringFormat='Цвет : {0}' }" Style="{StaticResource MaxSpeedTextBlock}"/>
+                                    <TextBlock Text="{Binding CarModels.MaxSpeed, StringFormat='Максимальная скорость : {0} км/ч' }" Style="{StaticResource MaxSpeedTextBlock}"/>
+                                    <TextBlock Text="{Binding CarModels.Acceleration, StringFormat='0-100 км/ч : {0} сек' }" Style="{StaticResource AccelerationTextBlock}"/>
+                                    <TextBlock Text="{Binding CarModels.YearOfIssue, StringFormat='Год выпуска : {0} год' }" Style="{StaticResource YearOfIssueTextBlock}"/>
+                                    <TextBlock Text="{Binding CarModels.Price, StringFormat='Цена : {0} ₽' }" Style="{StaticResource PriceTextBlock}"/>
+                                    <TextBlock Text="{Binding CarModels.Deposit, StringFormat='Залог : {0} ₽' }" Style="{StaticResource DepositTextBlock}"/>
+                                    </StackPanel>
                                 <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
-                                    <Button Content="Редактировать" Name="ButtonEdit" Click="ButtonEditClick" Style="{StaticResource AllButton}"></Button>
-                                    <Button Content="Удалить" Name="ButtonDelete" Click="ButtonDeleteClick" Style="{StaticResource AllButton}"></Button>
+                                    <Button Content="Редактировать" Name="ButtonEdit" Click="ButtonEditClick"/>
+                                    <Button Content="Удалить" Name="ButtonDelete" Click="ButtonDeleteClick"/>
                                 </StackPanel>
                             </StackPanel>
                         </Grid>
@@ -59,6 +70,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Grid.Row="3" HorizontalAlignment="Right" Name="AddAutomobileButton" Click="AddAutomobileButtonClick" Content="Добавить услугу" Style="{StaticResource AllButton}"/>
+        </Border>
+        
+        <Button Grid.Row="3" HorizontalAlignment="Right" Name="AddAutomobileButton" Click="AddAutomobileButtonClick" Content="Добавить услугу" Margin="0,0,20,5" Cursor="Hand"/>
     </Grid>
 </Page>

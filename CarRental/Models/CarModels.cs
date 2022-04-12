@@ -22,12 +22,13 @@ namespace CarRental.Models
     
         public int IdCarModels { get; set; }
         public string Model { get; set; }
-        public string Price { get; set; }
+        public Nullable<double> Price { get; set; }
         public string Deposit { get; set; }
         public Nullable<double> Acceleration { get; set; }
         public Nullable<int> MaxSpeed { get; set; }
         public Nullable<int> YearOfIssue { get; set; }
         public string Image { get; set; }
+        public string ImageAbove { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cars> Cars { get; set; }

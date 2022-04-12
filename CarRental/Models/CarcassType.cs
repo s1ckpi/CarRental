@@ -12,16 +12,16 @@ namespace CarRental.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Color
+    public partial class CarcassType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Color()
+        public CarcassType()
         {
             this.Cars = new HashSet<Cars>();
         }
     
-        public int IdColor { get; set; }
-        public string ColorName { get; set; }
+        public int IdCarcassType { get; set; }
+        public string CarcassName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cars> Cars { get; set; }

@@ -73,7 +73,7 @@ namespace CarRental.Views
                 {
                     Properties.Settings.Default.currentUser = AuthLoginTextBox.Text;
                     Properties.Settings.Default.Save();
-                    NavigationService.Navigate(new AutomobilePage());
+                    //NavigationService.Navigate(new AutomobilePage());
                 }
             }
         }

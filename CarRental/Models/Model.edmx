@@ -20,8 +20,15 @@
             <PropertyRef Name="IdBrand" />
           </Key>
           <Property Name="IdBrand" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Brand" Type="nvarchar" MaxLength="50" />
+          <Property Name="BrandName" Type="nvarchar" MaxLength="50" />
           <Property Name="BrandLogo" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CarcassType">
+          <Key>
+            <PropertyRef Name="IdCarcassType" />
+          </Key>
+          <Property Name="IdCarcassType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CarcassName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="CarModels">
           <Key>
@@ -29,12 +36,13 @@
           </Key>
           <Property Name="IdCarModels" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Model" Type="nvarchar" MaxLength="50" />
-          <Property Name="Price" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="float" />
           <Property Name="Deposit" Type="nvarchar" MaxLength="50" />
           <Property Name="Acceleration" Type="float" />
           <Property Name="MaxSpeed" Type="int" />
           <Property Name="YearOfIssue" Type="int" />
           <Property Name="Image" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImageAbove" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Cars">
           <Key>
@@ -44,42 +52,43 @@
           <Property Name="IdBrand" Type="int" />
           <Property Name="IdCarModels" Type="int" />
           <Property Name="IdColor" Type="int" />
-          <Property Name="Availability" Type="tinyint" />
+          <Property Name="IdCarcassType" Type="int" />
+          <Property Name="Availability" Type="int" />
         </EntityType>
         <EntityType Name="Clients">
           <Key>
             <PropertyRef Name="DriverLicenseNumber" />
           </Key>
           <Property Name="DriverLicenseNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="PatronymicName" Type="nvarchar" MaxLength="50" />
           <Property Name="Passport" Type="varchar" MaxLength="50" />
           <Property Name="Address" Type="nvarchar" MaxLength="50" />
-          <Property Name="Login" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Color">
           <Key>
             <PropertyRef Name="IdColor" />
           </Key>
           <Property Name="IdColor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Color" Type="nvarchar" MaxLength="50" />
+          <Property Name="ColorName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="IdRole" />
           </Key>
           <Property Name="IdRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Role" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Login" />
           </Key>
           <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdRole" Type="int" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
-          <Property Name="IdRole" Type="int" />
         </EntityType>
         <Association Name="FK_BeetwenCarsClients_Cars">
           <End Role="Cars" Type="Self.Cars" Multiplicity="0..1" />
@@ -114,6 +123,18 @@
             </Principal>
             <Dependent Role="Cars">
               <PropertyRef Name="IdBrand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_CarcassType">
+          <End Role="CarcassType" Type="Self.CarcassType" Multiplicity="0..1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarcassType">
+              <PropertyRef Name="IdCarcassType" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="IdCarcassType" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -168,6 +189,7 @@
         <EntityContainer Name="Хранилище CarRentalModelContainer">
           <EntitySet Name="BeetwenCarsClients" EntityType="Self.BeetwenCarsClients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarcassType" EntityType="Self.CarcassType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CarModels" EntityType="Self.CarModels" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cars" EntityType="Self.Cars" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
@@ -184,6 +206,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Cars_Brand" Association="Self.FK_Cars_Brand">
             <End Role="Brand" EntitySet="Brand" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_CarcassType" Association="Self.FK_Cars_CarcassType">
+            <End Role="CarcassType" EntitySet="CarcassType" />
             <End Role="Cars" EntitySet="Cars" />
           </AssociationSet>
           <AssociationSet Name="FK_Cars_CarModels" Association="Self.FK_Cars_CarModels">
@@ -225,9 +251,17 @@
             <PropertyRef Name="IdBrand" />
           </Key>
           <Property Name="IdBrand" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Brand1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="BrandLogo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_Brand" FromRole="Brand" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="CarcassType">
+          <Key>
+            <PropertyRef Name="IdCarcassType" />
+          </Key>
+          <Property Name="IdCarcassType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CarcassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_CarcassType" FromRole="CarcassType" ToRole="Cars" />
         </EntityType>
         <EntityType Name="CarModels">
           <Key>
@@ -235,12 +269,13 @@
           </Key>
           <Property Name="IdCarModels" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Double" />
           <Property Name="Deposit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Acceleration" Type="Double" />
           <Property Name="MaxSpeed" Type="Int32" />
           <Property Name="YearOfIssue" Type="Int32" />
           <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImageAbove" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_CarModels" FromRole="CarModels" ToRole="Cars" />
         </EntityType>
         <EntityType Name="Cars">
@@ -251,9 +286,11 @@
           <Property Name="IdBrand" Type="Int32" />
           <Property Name="IdCarModels" Type="Int32" />
           <Property Name="IdColor" Type="Int32" />
-          <Property Name="Availability" Type="Byte" />
+          <Property Name="IdCarcassType" Type="Int32" />
+          <Property Name="Availability" Type="Int32" />
           <NavigationProperty Name="BeetwenCarsClients" Relationship="Self.FK_BeetwenCarsClients_Cars" FromRole="Cars" ToRole="BeetwenCarsClients" />
           <NavigationProperty Name="Brand" Relationship="Self.FK_Cars_Brand" FromRole="Cars" ToRole="Brand" />
+          <NavigationProperty Name="CarcassType" Relationship="Self.FK_Cars_CarcassType" FromRole="Cars" ToRole="CarcassType" />
           <NavigationProperty Name="CarModels" Relationship="Self.FK_Cars_CarModels" FromRole="Cars" ToRole="CarModels" />
           <NavigationProperty Name="Color" Relationship="Self.FK_Cars_Color" FromRole="Cars" ToRole="Color" />
         </EntityType>
@@ -262,12 +299,12 @@
             <PropertyRef Name="DriverLicenseNumber" />
           </Key>
           <Property Name="DriverLicenseNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PatronymicName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Passport" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="BeetwenCarsClients" Relationship="Self.FK_BeetwenCarsClients_Clients" FromRole="Clients" ToRole="BeetwenCarsClients" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Clients_Users" FromRole="Clients" ToRole="Users" />
         </EntityType>
@@ -276,7 +313,7 @@
             <PropertyRef Name="IdColor" />
           </Key>
           <Property Name="IdColor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Color1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ColorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_Color" FromRole="Color" ToRole="Cars" />
         </EntityType>
         <EntityType Name="Role">
@@ -284,7 +321,7 @@
             <PropertyRef Name="IdRole" />
           </Key>
           <Property Name="IdRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Role1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Users_Role" FromRole="Role" ToRole="Users" />
         </EntityType>
         <EntityType Name="Users">
@@ -292,9 +329,9 @@
             <PropertyRef Name="Login" />
           </Key>
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdRole" Type="Int32" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IdRole" Type="Int32" />
           <NavigationProperty Name="Clients" Relationship="Self.FK_Clients_Users" FromRole="Users" ToRole="Clients" />
           <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
         </EntityType>
@@ -331,6 +368,18 @@
             </Principal>
             <Dependent Role="Cars">
               <PropertyRef Name="IdBrand" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_CarcassType">
+          <End Role="CarcassType" Type="Self.CarcassType" Multiplicity="0..1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarcassType">
+              <PropertyRef Name="IdCarcassType" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="IdCarcassType" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -385,6 +434,7 @@
         <EntityContainer Name="CarRentalEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BeetwenCarsClients" EntityType="Self.BeetwenCarsClients" />
           <EntitySet Name="Brand" EntityType="Self.Brand" />
+          <EntitySet Name="CarcassType" EntityType="Self.CarcassType" />
           <EntitySet Name="CarModels" EntityType="Self.CarModels" />
           <EntitySet Name="Cars" EntityType="Self.Cars" />
           <EntitySet Name="Clients" EntityType="Self.Clients" />
@@ -401,6 +451,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Cars_Brand" Association="Self.FK_Cars_Brand">
             <End Role="Brand" EntitySet="Brand" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_CarcassType" Association="Self.FK_Cars_CarcassType">
+            <End Role="CarcassType" EntitySet="CarcassType" />
             <End Role="Cars" EntitySet="Cars" />
           </AssociationSet>
           <AssociationSet Name="FK_Cars_CarModels" Association="Self.FK_Cars_CarModels">
@@ -441,8 +495,16 @@
             <EntityTypeMapping TypeName="CarRentalModel.Brand">
               <MappingFragment StoreEntitySet="Brand">
                 <ScalarProperty Name="IdBrand" ColumnName="IdBrand" />
-                <ScalarProperty Name="Brand1" ColumnName="Brand" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
                 <ScalarProperty Name="BrandLogo" ColumnName="BrandLogo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarcassType">
+            <EntityTypeMapping TypeName="CarRentalModel.CarcassType">
+              <MappingFragment StoreEntitySet="CarcassType">
+                <ScalarProperty Name="IdCarcassType" ColumnName="IdCarcassType" />
+                <ScalarProperty Name="CarcassName" ColumnName="CarcassName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -457,6 +519,7 @@
                 <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />
                 <ScalarProperty Name="YearOfIssue" ColumnName="YearOfIssue" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="ImageAbove" ColumnName="ImageAbove" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -467,6 +530,7 @@
                 <ScalarProperty Name="IdBrand" ColumnName="IdBrand" />
                 <ScalarProperty Name="IdCarModels" ColumnName="IdCarModels" />
                 <ScalarProperty Name="IdColor" ColumnName="IdColor" />
+                <ScalarProperty Name="IdCarcassType" ColumnName="IdCarcassType" />
                 <ScalarProperty Name="Availability" ColumnName="Availability" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -475,12 +539,12 @@
             <EntityTypeMapping TypeName="CarRentalModel.Clients">
               <MappingFragment StoreEntitySet="Clients">
                 <ScalarProperty Name="DriverLicenseNumber" ColumnName="DriverLicenseNumber" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="PatronymicName" ColumnName="PatronymicName" />
                 <ScalarProperty Name="Passport" ColumnName="Passport" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -488,7 +552,7 @@
             <EntityTypeMapping TypeName="CarRentalModel.Color">
               <MappingFragment StoreEntitySet="Color">
                 <ScalarProperty Name="IdColor" ColumnName="IdColor" />
-                <ScalarProperty Name="Color1" ColumnName="Color" />
+                <ScalarProperty Name="ColorName" ColumnName="ColorName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -496,7 +560,7 @@
             <EntityTypeMapping TypeName="CarRentalModel.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="IdRole" ColumnName="IdRole" />
-                <ScalarProperty Name="Role1" ColumnName="Role" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -504,9 +568,9 @@
             <EntityTypeMapping TypeName="CarRentalModel.Users">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

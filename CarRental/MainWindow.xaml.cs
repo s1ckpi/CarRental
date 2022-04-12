@@ -52,7 +52,7 @@ namespace CarRental
             
             if (Click == 0)
             {
-                CarRentalTitle.Margin = new Thickness(0,0,830,0);
+                CarRentalImage.Margin = new Thickness(0,-17.5, 830, 0);
                 this.WindowState = WindowState.Maximized;
                 Click++;
                 OpenFullscreenButton.Visibility = Visibility.Collapsed;
@@ -64,7 +64,7 @@ namespace CarRental
         {
             if (Click == 1)
             {
-                CarRentalTitle.Margin = new Thickness(0,0,590,0);
+                CarRentalImage.Margin = new Thickness(0,-17.5, 590, 0);
                 this.WindowState = WindowState.Normal;
                 Click--;
                 OpenFullscreenButton.Visibility = Visibility.Visible;

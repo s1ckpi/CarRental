@@ -70,6 +70,9 @@
     <Compile Include="Models\Brand.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CarcassType.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\CarModels.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -78,6 +81,7 @@
     </Compile>
     <Compile Include="Models\ClassPartial\Brand.cs" />
     <Compile Include="Models\ClassPartial\CarModels.cs" />
+    <Compile Include="Models\ClassPartial\Cars.cs" />
     <Compile Include="Models\Clients.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -106,17 +110,17 @@
     <Compile Include="Models\Users.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddEditAutomobilePage.xaml.cs">
+      <DependentUpon>AddEditAutomobilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AdminMenu.xaml.cs">
+      <DependentUpon>AdminMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AuthPage.xaml.cs">
       <DependentUpon>AuthPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\AutomobilePage.xaml.cs">
-      <DependentUpon>AutomobilePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MiniProfilePage.xaml.cs">
-      <DependentUpon>MiniProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RegPage.xaml.cs">
       <DependentUpon>RegPage.xaml</DependentUpon>
@@ -137,19 +141,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AddEditAutomobilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AdminMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AdminPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AuthPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\AutomobilePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\MiniProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -176,6 +180,24 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Assets\Fonts\NotoSansDisplay-Black.ttf" />
+    <Resource Include="Assets\Fonts\NotoSansDisplay-BlackItalic.ttf" />
+    <Resource Include="Assets\Fonts\NotoSansDisplay-Bold.ttf" />
+    <Resource Include="Assets\Fonts\NotoSansDisplay-BoldItalic.ttf" />
+    <Resource Include="Assets\Fonts\NotoSansDisplay-ExtraBold.ttf" />
+    <Resource Include="Assets\Fonts\NotoSansDisplay-ExtraBoldItalic.ttf" />
+    <Resource Include="Assets\Fonts\NotoSansDisplay-ExtraLight.ttf" />
+    <Resource Include="Assets\Fonts\NotoSansDisplay-ExtraLightItalic.ttf" />
+    <Resource Include="Assets\Fonts\NotoSansDisplay-Italic.ttf" />
+    <Resource Include="Assets\Fonts\NotoSansDisplay-Light.ttf" />
+    <Resource Include="Assets\Fonts\NotoSansDisplay-LightItalic.ttf" />
+    <Resource Include="Assets\Fonts\NotoSansDisplay-Medium.ttf" />
+    <Resource Include="Assets\Fonts\NotoSansDisplay-MediumItalic.ttf" />
+    <Resource Include="Assets\Fonts\NotoSansDisplay-Regular.ttf" />
+    <Resource Include="Assets\Fonts\NotoSansDisplay-SemiBold.ttf" />
+    <Resource Include="Assets\Fonts\NotoSansDisplay-SemiBoldItalic.ttf" />
+    <Resource Include="Assets\Fonts\NotoSansDisplay-Thin.ttf" />
+    <Resource Include="Assets\Fonts\NotoSansDisplay-ThinItalic.ttf" />
     <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
@@ -193,9 +215,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\Fonts\" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\Icons\close_active.png" />
     <Resource Include="Assets\Icons\close_noactive.png" />
     <Resource Include="Assets\Icons\minimize_active.png" />
@@ -206,9 +225,6 @@
     <Resource Include="Assets\Icons\close_fullscreen_noactive.png" />
     <Resource Include="Assets\Icons\open_in_full_active.png" />
     <Resource Include="Assets\Icons\open_in_full_noactive.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\Icons\right_arrow.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -242,6 +258,9 @@
     <Resource Include="Assets\Images\Car\Front side\MC20.png" />
     <Resource Include="Assets\Images\Car\Front side\P1.png" />
     <Resource Include="Assets\Images\Car\Front side\Taycan Turbo S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Images\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\Model.Context.tt">

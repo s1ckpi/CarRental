@@ -26,10 +26,10 @@
 
             <Grid x:Name="ToolBar" Background="Transparent" Grid.ColumnSpan="2" MouseDown="ToolBarMouseDown">
 
-                <Border Background="White" BorderThickness="0" CornerRadius="10">
+                <Border Background="White" BorderThickness="0" CornerRadius="0,0,20,20">
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="1">
-                        <TextBlock x:Name="CarRentalTitle" Margin="0,0,590,0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" Foreground="Crimson">CarRental</TextBlock>
+                        <Image x:Name="CarRentalImage" Source="/Assets/Images/logo.png" Margin="0,-17.5,590,0" Height="80"/>
                         <Image x:Name="MinimizeButton" Style="{StaticResource MinimizeButtonHover}" MouseLeftButtonDown="MinimizeButtonMouseLeftButtonDown"/>
                         <Image x:Name="OpenFullscreenButton" Style="{StaticResource OpenFullscreenButtonHover}" MouseLeftButtonDown="OpenFullscreenButtonMouseLeftButtonDown"/>
                         <Image x:Name="CloseFullscreenButton" Style="{StaticResource CloseFullscreenButtonHover}" MouseLeftButtonDown="CloseFullscreenButtonMouseLeftButtonDown"/>

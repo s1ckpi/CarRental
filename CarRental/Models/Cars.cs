@@ -24,11 +24,13 @@ namespace CarRental.Models
         public Nullable<int> IdBrand { get; set; }
         public Nullable<int> IdCarModels { get; set; }
         public Nullable<int> IdColor { get; set; }
-        public Nullable<byte> Availability { get; set; }
+        public Nullable<int> IdCarcassType { get; set; }
+        public Nullable<int> Availability { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BeetwenCarsClients> BeetwenCarsClients { get; set; }
         public virtual Brand Brand { get; set; }
+        public virtual CarcassType CarcassType { get; set; }
         public virtual CarModels CarModels { get; set; }
         public virtual Color Color { get; set; }
     }

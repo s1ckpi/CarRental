@@ -22,19 +22,14 @@ namespace CarRental.Views
     public partial class AdminPage : Page
     {
         Core db = new Core();
+        List<Cars> arrayCars;
         List<CarModels> arrayCarModels;
-        List<Brand> arrayBrand;
         public AdminPage()
         {
             InitializeComponent();
-            arrayCarModels = db.context.CarModels.ToList();
-            arrayBrand = db.context.Brand.ToList();
-            foreach (var item in arrayBrand)
-            {
-
-                Console.WriteLine(item.ImageBrandLogoPath);
-            }
-            ListAutomobileListView.ItemsSource = arrayCarModels;
+            arrayCars = db.context.Cars.ToList();
+            ListAutomobileListView.ItemsSource = arrayCars;
+            UpdateServices();
         }
 
         private void ButtonEditClick(object sender, RoutedEventArgs e)
@@ -49,7 +44,32 @@ namespace CarRental.Views
 
         private void AddAutomobileButtonClick(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new AddEditAutomobilePage());
+        }
 
+        private void UpdateServices()
+        {
+            ListAutomobileListView.ItemsSource = null;
+            arrayCars = db.context.Cars.ToList();
+
+            //Фильтрация по кузову
+            if (SortComboBox.SelectedIndex == 1)
+            {
+                arrayCars = arrayCars.Where(x => x.CarModels.Price >= 0 && x.CarModels.Price <= 50000).ToList();
+            }
+            if (SortComboBox.SelectedIndex == 2)
+            {
+                arrayCars = arrayCars.Where(x => x.CarModels.Price >= 50000 && x.CarModels.Price <= 100000).ToList();
+            }
+            if (SortComboBox.SelectedIndex == 3)
+            {
+                arrayCars = arrayCars.Where(x => x.CarModels.Price >= 100000 && x.CarModels.Price <= 150000).ToList();
+            }
+
+            //Поиск по названию (регистронезавимый)
+            arrayCars = arrayCars.Where(x => x.Brand.BrandName.ToLower().Contains(SearchTextBox.Text.ToLower())).ToList();
+
+            ListAutomobileListView.ItemsSource = arrayCars;
         }
     }
 }

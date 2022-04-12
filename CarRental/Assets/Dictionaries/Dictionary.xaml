@@ -1,7 +1,18 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Style x:Key="AllButton" TargetType="Button">
+    <FontFamily x:Key="NSDRegular">pack://application:,,,/Assets\Fonts\notosansdisplay-regular.ttf#Noto Sans Display</FontFamily>
+    <FontFamily x:Key="NSDLight">pack://application:,,,/Assets\Fonts\notosansdisplay-light.ttf#Noto Sans Display</FontFamily>
+    <FontFamily x:Key="NSDBold">pack://application:,,,/Assets\Fonts\notosansdisplay-bold.ttf#Noto Sans Display</FontFamily>
+
+
+
+
+    <Style TargetType="ComboBox">
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
+    </Style>
+
+    <Style TargetType="Button">
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Background" Value="Crimson"/>
@@ -9,12 +20,13 @@
         <Setter Property="Width" Value="100"/>
         <Setter Property="Margin" Value="0,5,5,0"/>
         <Setter Property="Cursor"  Value="Hand"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border Name="border"
                         Background="{TemplateBinding Background}" CornerRadius="5">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -28,6 +40,7 @@
         <Setter Property="Margin" Value="10"/>
         <Setter Property="Cursor"  Value="Hand"/>
         <Setter Property="Background" Value="Crimson"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -43,18 +56,16 @@
     <Style x:Key="SingInButton" TargetType="Button">
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Margin" Value="10,25,10,10"/>
+        <Setter Property="Margin" Value="10,50,10,10"/>
         <Setter Property="Cursor"  Value="Hand"/>
         <Setter Property="FontSize"  Value="16"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border Name="border" CornerRadius="15" 
-                        Background="White">
+                        Background="Crimson">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        <Border.Effect>
-                            <DropShadowEffect ShadowDepth="2" BlurRadius="15" Color="Black" Opacity="0.6"/>
-                        </Border.Effect>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -64,18 +75,16 @@
     <Style x:Key="SingUpButton" TargetType="Button">
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Margin" Value="10,25,10,10"/>
+        <Setter Property="Margin" Value="10,50,10,10"/>
         <Setter Property="Cursor"  Value="Hand"/>
         <Setter Property="FontSize"  Value="16"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border Name="border" CornerRadius="15" 
-                        Background="White">
+                        Background="Crimson">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        <Border.Effect>
-                            <DropShadowEffect ShadowDepth="2" BlurRadius="15" Color="Black" Opacity="0.6"/>
-                        </Border.Effect>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -87,6 +96,7 @@
         <Setter Property="Foreground" Value="DarkGray"/>
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Visibility" Value="Collapsed"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
         <Style.Triggers>
             <DataTrigger Binding="{Binding Text, ElementName=AuthLoginTextBox}" Value="">
                 <Setter Property="Visibility" Value="Visible"/>
@@ -99,6 +109,7 @@
         <Setter Property="Foreground" Value="DarkGray"/>
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Visibility" Value="Collapsed"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
         <Style.Triggers>
             <DataTrigger Binding="{Binding Text, ElementName=RegLoginTextBox}" Value="">
                 <Setter Property="Visibility" Value="Visible"/>
@@ -112,6 +123,7 @@
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Margin" Value="0,45,0,0"/>
         <Setter Property="Visibility" Value="Collapsed"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
         <Style.Triggers>
             <DataTrigger Binding="{Binding Text, ElementName=RegConfirmPasswordTextBox}" Value="">
                 <Setter Property="Visibility" Value="Visible"/>
@@ -126,6 +138,7 @@
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Margin" Value="0,45,0,0"/>
         <Setter Property="Visibility" Value="Collapsed"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
         <Style.Triggers>
             <DataTrigger Binding="{Binding Text, ElementName=AuthPasswordTextBox}" Value="">
                 <Setter Property="Visibility" Value="Visible"/>
@@ -140,6 +153,7 @@
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Margin" Value="0,45,0,0"/>
         <Setter Property="Visibility" Value="Collapsed"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
         <Style.Triggers>
             <DataTrigger Binding="{Binding Text, ElementName=RegPasswordTextBox}" Value="">
                 <Setter Property="Visibility" Value="Visible"/>
@@ -154,6 +168,7 @@
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Margin" Value="0,45,0,0"/>
         <Setter Property="Visibility" Value="Collapsed"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
         <Style.Triggers>
             <DataTrigger Binding="{Binding Text, ElementName=RegEmailTextBox}" Value="">
                 <Setter Property="Visibility" Value="Visible"/>
@@ -168,15 +183,13 @@
         <Setter Property="Padding" Value="10,0,0,0"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Background" Value="Crimson"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
                     <Grid x:Name="root" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" SnapsToDevicePixels="True">
                         <Border x:Name="background" BorderThickness="0" CornerRadius="15" Background="{TemplateBinding Background}" 
                                 BorderBrush="{TemplateBinding BorderBrush}">
-                            <Border.Effect>
-                                <DropShadowEffect ShadowDepth="7" BlurRadius="20" Color="Black" Opacity="0.4"/>
-                            </Border.Effect>
                         </Border>
                         <ScrollViewer x:Name="PART_ContentHost" BorderThickness="0" Padding="{TemplateBinding Padding}" 
                                       IsTabStop="False" Background="{x:Null}" TextElement.Foreground="{TemplateBinding Foreground}"/>
@@ -186,21 +199,19 @@
         </Setter>
     </Style>
 
-    <Style TargetType="PasswordBox">
+    <Style x:Key="SearchTextBox" TargetType="TextBox">
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontSize"  Value="16"/>
         <Setter Property="Padding" Value="10,0,0,0"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Background" Value="Crimson"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="PasswordBox">
+                <ControlTemplate TargetType="TextBox">
                     <Grid x:Name="root" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}" SnapsToDevicePixels="True">
-                        <Border x:Name="background" BorderThickness="0" CornerRadius="15" Background="{TemplateBinding Background}" 
+                        <Border x:Name="background" BorderThickness="0" Background="{TemplateBinding Background}" 
                                 BorderBrush="{TemplateBinding BorderBrush}">
-                            <Border.Effect>
-                                <DropShadowEffect ShadowDepth="7" BlurRadius="20" Color="Black" Opacity="0.4"/>
-                            </Border.Effect>
                         </Border>
                         <ScrollViewer x:Name="PART_ContentHost" BorderThickness="0" Padding="{TemplateBinding Padding}" 
                                       IsTabStop="False" Background="{x:Null}" TextElement.Foreground="{TemplateBinding Foreground}"/>
@@ -263,10 +274,61 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="PriceTextBlock" TargetType="TextBlock">
+    <Style x:Key="BrandTextBlock" TargetType="TextBlock">
         <Setter Property="Foreground" Value="Crimson"/>
-        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="10,5,0,0"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDBold}"/>
+    </Style>
+
+    <Style x:Key="ModelTextBlock" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="Crimson"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Margin" Value="10,5,0,0"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDLight}"/>
+    </Style>
+
+    <Style x:Key="MaxSpeedTextBlock" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="Crimson"/>
+        <Setter Property="FontSize" Value="15"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="Margin" Value="0,10,0,0"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
+    </Style>
+
+    <Style x:Key="AccelerationTextBlock" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="Crimson"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Margin" Value="0,10,0,0"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
+    </Style>
+
+    <Style x:Key="YearOfIssueTextBlock" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="Crimson"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Margin" Value="0,10,0,0"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
+    </Style>
+
+    <Style x:Key="PriceTextBlock" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="Crimson"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Margin" Value="0,10,0,0"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
+    </Style>
+
+    <Style x:Key="DepositTextBlock" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="Crimson"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Margin" Value="0,10,0,10"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
     </Style>
 </ResourceDictionary>
