@@ -13,10 +13,18 @@ namespace CarRental.Models
         {
             get
             {
-                if (Availability == 1 || Availability == null)
-                    return "#ff9e9e";
-                else
-                    return "#d1ffd1";
+                if (Availability == 2)
+                {
+                    return "#fffead";
+                }
+                else 
+                {
+                    if (Availability == 1 || Availability == null)
+                        return "#ffadad";
+                    else
+                        return "#aeffad";
+                }
+                
             }
         }
     }

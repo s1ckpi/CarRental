@@ -37,7 +37,7 @@
           <Property Name="IdCarModels" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Model" Type="nvarchar" MaxLength="50" />
           <Property Name="Price" Type="float" />
-          <Property Name="Deposit" Type="nvarchar" MaxLength="50" />
+          <Property Name="Deposit" Type="float" />
           <Property Name="Acceleration" Type="float" />
           <Property Name="MaxSpeed" Type="int" />
           <Property Name="YearOfIssue" Type="int" />
@@ -270,7 +270,7 @@
           <Property Name="IdCarModels" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Double" />
-          <Property Name="Deposit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Deposit" Type="Double" />
           <Property Name="Acceleration" Type="Double" />
           <Property Name="MaxSpeed" Type="Int32" />
           <Property Name="YearOfIssue" Type="Int32" />

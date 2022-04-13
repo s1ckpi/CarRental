@@ -27,13 +27,23 @@ namespace CarRental.Views
         Cars currentCars;
         string fileString;
         private byte[] _mainImageData;
-        public AddEditAutomobilePage()
+        public AddEditAutomobilePage(CarRentalEntities context, Cars activeCar)
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            List<string> colorCars = new List<string> { "Белый", "Чёрынй", "Серый", "Фиолетовый", "Красный", "Жёлтый", "Зелёный", "Голубой", "Синий", "Серебрянный", 
+            "Золотой", "Оранжевый", "Розовый", "Малиновый", "Тёмно синий", "Тёмно зелёный", "Тёмно красный", "Тёмно фиолетовый", "Тёмно голубой", "Тёмно оранжевый" };
+            
+            List<string> CarcassCars = new List<string> { "Седан", "Хэтчбек", "Универсал", "Лифтбэк", "Купе", "Кабриолет", "Родстер",
+            "Тарга", "Лимузин", "Стретч", "Внедорожник", "Кроссовер", "Пикап", "Фургон", "Минивэн", "Микроавтобус", "Автобус"};
+
+            ColorComboBox.ItemsSource = colorCars;
             ColorComboBox.SelectedIndex = 0;
+            CarcassComboBox.ItemsSource = CarcassCars;
             CarcassComboBox.SelectedIndex = 0;
-            ImageAutomobole.Visibility = Visibility.Collapsed;
-            ImageAutomobileAbove.Visibility = Visibility.Collapsed;
+
+            currentCars = activeCar;
+            this.db.context = context;
+            this.DataContext = currentCars;
         }
 
         private void SelectImageAutomoboleButtonClick(object sender, RoutedEventArgs e)
@@ -46,8 +56,6 @@ namespace CarRental.Views
                 fileString = ofd.FileName;
                 ImageAutomobole.Source = (ImageSource)new ImageSourceConverter().ConvertFrom(_mainImageData);
                 ImageAutomobole.Visibility = Visibility.Visible;
-                AddServiceButton.Margin = new Thickness(-5, 5, 0, 0);
-                ImageAutomobileStackPanel.Margin = new Thickness(1000,-640,0,0);
             }
         }
 
@@ -66,8 +74,6 @@ namespace CarRental.Views
                 fileString = ofd.FileName;
                 ImageAutomobileAbove.Source = (ImageSource)new ImageSourceConverter().ConvertFrom(_mainImageData);
                 ImageAutomobileAbove.Visibility = Visibility.Visible;
-                AddServiceButton.Margin = new Thickness(-5, 5, 0, 0);
-                ImageAutomobileAboveStackPanel.Margin = new Thickness(1000, 50, 0, 0);
             }
         }
 

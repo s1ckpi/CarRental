@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:CarRental"
         mc:Ignorable="d"
         Title="CarRental"
-        MinHeight="600" MinWidth="800"
-        MaxHeight="1040" MaxWidth="1920"
+        Height="1040" Width="1920"
         Background="Transparent" AllowsTransparency="True"
         WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize">
 
@@ -29,10 +28,8 @@
                 <Border Background="White" BorderThickness="0" CornerRadius="0,0,20,20">
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="1">
-                        <Image x:Name="CarRentalImage" Source="/Assets/Images/logo.png" Margin="0,-17.5,590,0" Height="80"/>
+                        <Image x:Name="CarRentalImage" Source="/Assets/Images/logo.png" Margin="0,-17.5,858,0" Height="80"/>
                         <Image x:Name="MinimizeButton" Style="{StaticResource MinimizeButtonHover}" MouseLeftButtonDown="MinimizeButtonMouseLeftButtonDown"/>
-                        <Image x:Name="OpenFullscreenButton" Style="{StaticResource OpenFullscreenButtonHover}" MouseLeftButtonDown="OpenFullscreenButtonMouseLeftButtonDown"/>
-                        <Image x:Name="CloseFullscreenButton" Style="{StaticResource CloseFullscreenButtonHover}" MouseLeftButtonDown="CloseFullscreenButtonMouseLeftButtonDown"/>
                         <Image x:Name="CloseButton" Style="{StaticResource CloseButtonHover}" MouseLeftButtonDown="CloseButtonMouseLeftButtonDown"/>
                     </StackPanel>
                     <Border.Effect>

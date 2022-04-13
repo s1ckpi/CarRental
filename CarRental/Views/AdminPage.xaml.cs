@@ -26,7 +26,18 @@ namespace CarRental.Views
         List<CarModels> arrayCarModels;
         public AdminPage()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+
+            List<string> CarcassCars = new List<string> {"Все", "Седан", "Хэтчбек", "Универсал", "Лифтбэк", "Купе", "Кабриолет", "Родстер",
+            "Тарга", "Лимузин", "Стретч", "Внедорожник", "Кроссовер", "Пикап", "Фургон", "Минивэн", "Микроавтобус", "Автобус"};
+
+            List<string> PriceCars = new List<string> {"Все", "от 0 до 50 000", "от 50 000 до 100 000", "от 100 000 до 150 000"};
+
+            List<string> BrandCars = new List<string> {"Все", "от 0 до 50 000", "от 50 000 до 100 000", "от 100 000 до 150 000"};
+
+            CarcassComboBox.ItemsSource = CarcassCars;
+            PriceComboBox.ItemsSource = PriceCars;
+            BrandComboBox.ItemsSource = BrandCars;
             arrayCars = db.context.Cars.ToList();
             ListAutomobileListView.ItemsSource = arrayCars;
             UpdateServices();
@@ -34,7 +45,9 @@ namespace CarRental.Views
 
         private void ButtonEditClick(object sender, RoutedEventArgs e)
         {
-
+            Button selectedButton = sender as Button;
+            Cars item = selectedButton.DataContext as Cars;
+            NavigationService.Navigate(new AddEditAutomobilePage(db.context, item));
         }
 
         private void ButtonDeleteClick(object sender, RoutedEventArgs e)
@@ -44,32 +57,57 @@ namespace CarRental.Views
 
         private void AddAutomobileButtonClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddEditAutomobilePage());
+            Cars item = new Cars();
+            db.context.Cars.Add(item);
+            NavigationService.Navigate(new AddEditAutomobilePage(db.context, item));
         }
 
         private void UpdateServices()
         {
-            ListAutomobileListView.ItemsSource = null;
             arrayCars = db.context.Cars.ToList();
-
+            ListAutomobileListView.ItemsSource = arrayCars;
             //Фильтрация по кузову
-            if (SortComboBox.SelectedIndex == 1)
+            if (PriceComboBox.SelectedIndex != 0)
             {
-                arrayCars = arrayCars.Where(x => x.CarModels.Price >= 0 && x.CarModels.Price <= 50000).ToList();
-            }
-            if (SortComboBox.SelectedIndex == 2)
-            {
-                arrayCars = arrayCars.Where(x => x.CarModels.Price >= 50000 && x.CarModels.Price <= 100000).ToList();
-            }
-            if (SortComboBox.SelectedIndex == 3)
-            {
-                arrayCars = arrayCars.Where(x => x.CarModels.Price >= 100000 && x.CarModels.Price <= 150000).ToList();
+                if (PriceComboBox.SelectedIndex == 1)
+                {
+                    arrayCars = arrayCars.Where(x => x.CarModels.Price >= 0 && x.CarModels.Price <= 50000).ToList();
+                }
+                if (PriceComboBox.SelectedIndex == 2)
+                {
+                    arrayCars = arrayCars.Where(x => x.CarModels.Price >= 50000 && x.CarModels.Price <= 100000).ToList();
+                }
+                if (PriceComboBox.SelectedIndex == 3)
+                {
+                    arrayCars = arrayCars.Where(x => x.CarModels.Price >= 100000 && x.CarModels.Price <= 150000).ToList();
+                }
             }
 
             //Поиск по названию (регистронезавимый)
-            arrayCars = arrayCars.Where(x => x.Brand.BrandName.ToLower().Contains(SearchTextBox.Text.ToLower())).ToList();
+            arrayCars = arrayCars.Where(x => x.CarModels.Model.ToLower().Contains(SearchTextBox.Text.ToLower())).ToList();
 
+            ListAutomobileListView.ItemsSource = null;
             ListAutomobileListView.ItemsSource = arrayCars;
+        }
+
+        private void PriceComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateServices();
+        }
+
+        private void SearchTextBoxSelectionChanged(object sender, RoutedEventArgs e)
+        {
+            UpdateServices();
+        }
+
+        private void CarcassComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateServices();
+        }
+
+        private void BrandComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateServices();
         }
     }
 }
