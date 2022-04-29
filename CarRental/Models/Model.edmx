@@ -20,7 +20,7 @@
             <PropertyRef Name="IdBrand" />
           </Key>
           <Property Name="IdBrand" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="BrandName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BrandName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="BrandLogo" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="CarcassType">
@@ -35,12 +35,13 @@
             <PropertyRef Name="IdCarModels" />
           </Key>
           <Property Name="IdCarModels" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Model" Type="nvarchar" MaxLength="50" />
-          <Property Name="Price" Type="float" />
-          <Property Name="Deposit" Type="float" />
-          <Property Name="Acceleration" Type="float" />
-          <Property Name="MaxSpeed" Type="int" />
-          <Property Name="YearOfIssue" Type="int" />
+          <Property Name="IdBrand" Type="int" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="Deposit" Type="float" Nullable="false" />
+          <Property Name="Acceleration" Type="float" Nullable="false" />
+          <Property Name="MaxSpeed" Type="int" Nullable="false" />
+          <Property Name="YearOfIssue" Type="int" Nullable="false" />
           <Property Name="Image" Type="nvarchar" MaxLength="50" />
           <Property Name="ImageAbove" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -49,11 +50,11 @@
             <PropertyRef Name="RegistrationNumber" />
           </Key>
           <Property Name="RegistrationNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="IdBrand" Type="int" />
-          <Property Name="IdCarModels" Type="int" />
-          <Property Name="IdColor" Type="int" />
-          <Property Name="IdCarcassType" Type="int" />
-          <Property Name="Availability" Type="int" />
+          <Property Name="IdBrand" Type="int" Nullable="false" />
+          <Property Name="IdCarModels" Type="int" Nullable="false" />
+          <Property Name="IdColor" Type="int" Nullable="false" />
+          <Property Name="IdCarcassType" Type="int" Nullable="false" />
+          <Property Name="Availability" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Clients">
           <Key>
@@ -115,7 +116,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Cars_Brand">
-          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
           <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Brand">
@@ -127,7 +128,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Cars_CarcassType">
-          <End Role="CarcassType" Type="Self.CarcassType" Multiplicity="0..1" />
+          <End Role="CarcassType" Type="Self.CarcassType" Multiplicity="1" />
           <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CarcassType">
@@ -139,7 +140,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Cars_CarModels">
-          <End Role="CarModels" Type="Self.CarModels" Multiplicity="0..1" />
+          <End Role="CarModels" Type="Self.CarModels" Multiplicity="1" />
           <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CarModels">
@@ -151,7 +152,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Cars_Color">
-          <End Role="Color" Type="Self.Color" Multiplicity="0..1" />
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
           <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Color">
@@ -251,7 +252,7 @@
             <PropertyRef Name="IdBrand" />
           </Key>
           <Property Name="IdBrand" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="BrandLogo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_Brand" FromRole="Brand" ToRole="Cars" />
         </EntityType>
@@ -268,12 +269,13 @@
             <PropertyRef Name="IdCarModels" />
           </Key>
           <Property Name="IdCarModels" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Double" />
-          <Property Name="Deposit" Type="Double" />
-          <Property Name="Acceleration" Type="Double" />
-          <Property Name="MaxSpeed" Type="Int32" />
-          <Property Name="YearOfIssue" Type="Int32" />
+          <Property Name="IdBrand" Type="Int32" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="Deposit" Type="Double" Nullable="false" />
+          <Property Name="Acceleration" Type="Double" Nullable="false" />
+          <Property Name="MaxSpeed" Type="Int32" Nullable="false" />
+          <Property Name="YearOfIssue" Type="Int32" Nullable="false" />
           <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ImageAbove" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Cars" Relationship="Self.FK_Cars_CarModels" FromRole="CarModels" ToRole="Cars" />
@@ -283,11 +285,11 @@
             <PropertyRef Name="RegistrationNumber" />
           </Key>
           <Property Name="RegistrationNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IdBrand" Type="Int32" />
-          <Property Name="IdCarModels" Type="Int32" />
-          <Property Name="IdColor" Type="Int32" />
-          <Property Name="IdCarcassType" Type="Int32" />
-          <Property Name="Availability" Type="Int32" />
+          <Property Name="IdBrand" Type="Int32" Nullable="false" />
+          <Property Name="IdCarModels" Type="Int32" Nullable="false" />
+          <Property Name="IdColor" Type="Int32" Nullable="false" />
+          <Property Name="IdCarcassType" Type="Int32" Nullable="false" />
+          <Property Name="Availability" Type="Int32" Nullable="false" />
           <NavigationProperty Name="BeetwenCarsClients" Relationship="Self.FK_BeetwenCarsClients_Cars" FromRole="Cars" ToRole="BeetwenCarsClients" />
           <NavigationProperty Name="Brand" Relationship="Self.FK_Cars_Brand" FromRole="Cars" ToRole="Brand" />
           <NavigationProperty Name="CarcassType" Relationship="Self.FK_Cars_CarcassType" FromRole="Cars" ToRole="CarcassType" />
@@ -360,7 +362,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Cars_Brand">
-          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1" />
           <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Brand">
@@ -372,7 +374,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Cars_CarcassType">
-          <End Role="CarcassType" Type="Self.CarcassType" Multiplicity="0..1" />
+          <End Role="CarcassType" Type="Self.CarcassType" Multiplicity="1" />
           <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CarcassType">
@@ -384,7 +386,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Cars_CarModels">
-          <End Role="CarModels" Type="Self.CarModels" Multiplicity="0..1" />
+          <End Role="CarModels" Type="Self.CarModels" Multiplicity="1" />
           <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CarModels">
@@ -396,7 +398,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Cars_Color">
-          <End Role="Color" Type="Self.Color" Multiplicity="0..1" />
+          <End Role="Color" Type="Self.Color" Multiplicity="1" />
           <End Role="Cars" Type="Self.Cars" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Color">
@@ -512,6 +514,7 @@
             <EntityTypeMapping TypeName="CarRentalModel.CarModels">
               <MappingFragment StoreEntitySet="CarModels">
                 <ScalarProperty Name="IdCarModels" ColumnName="IdCarModels" />
+                <ScalarProperty Name="IdBrand" ColumnName="IdBrand" />
                 <ScalarProperty Name="Model" ColumnName="Model" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Deposit" ColumnName="Deposit" />

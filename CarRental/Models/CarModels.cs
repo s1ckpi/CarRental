@@ -21,12 +21,13 @@ namespace CarRental.Models
         }
     
         public int IdCarModels { get; set; }
+        public int IdBrand { get; set; }
         public string Model { get; set; }
-        public Nullable<double> Price { get; set; }
-        public Nullable<double> Deposit { get; set; }
-        public Nullable<double> Acceleration { get; set; }
-        public Nullable<int> MaxSpeed { get; set; }
-        public Nullable<int> YearOfIssue { get; set; }
+        public double Price { get; set; }
+        public double Deposit { get; set; }
+        public double Acceleration { get; set; }
+        public int MaxSpeed { get; set; }
+        public int YearOfIssue { get; set; }
         public string Image { get; set; }
         public string ImageAbove { get; set; }
     

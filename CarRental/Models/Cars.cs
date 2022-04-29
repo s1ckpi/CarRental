@@ -21,11 +21,11 @@ namespace CarRental.Models
         }
     
         public string RegistrationNumber { get; set; }
-        public Nullable<int> IdBrand { get; set; }
-        public Nullable<int> IdCarModels { get; set; }
-        public Nullable<int> IdColor { get; set; }
-        public Nullable<int> IdCarcassType { get; set; }
-        public Nullable<int> Availability { get; set; }
+        public int IdBrand { get; set; }
+        public int IdCarModels { get; set; }
+        public int IdColor { get; set; }
+        public int IdCarcassType { get; set; }
+        public int Availability { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BeetwenCarsClients> BeetwenCarsClients { get; set; }

@@ -110,8 +110,14 @@
     <Compile Include="Models\Users.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddBrand.xaml.cs">
+      <DependentUpon>AddBrand.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddEditAutomobilePage.xaml.cs">
       <DependentUpon>AddEditAutomobilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddModel.xaml.cs">
+      <DependentUpon>AddModel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AdminMenu.xaml.cs">
       <DependentUpon>AdminMenu.xaml</DependentUpon>
@@ -141,7 +147,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AddBrand.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AddEditAutomobilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddModel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -238,26 +252,26 @@
     <Resource Include="Assets\Images\Brand\McLaren.png" />
     <Resource Include="Assets\Images\Brand\Porsche.png" />
     <Resource Include="Assets\Images\Brand\Rolls-royce.png" />
-    <Resource Include="Assets\Images\Car\Above side\911 GT3 above.png" />
-    <Resource Include="Assets\Images\Car\Above side\Agera RS above.png" />
-    <Resource Include="Assets\Images\Car\Above side\Chiron above.png" />
-    <Resource Include="Assets\Images\Car\Above side\Corvette C8 above.png" />
-    <Resource Include="Assets\Images\Car\Above side\DB5 above.png" />
-    <Resource Include="Assets\Images\Car\Above side\Gawn above.png" />
-    <Resource Include="Assets\Images\Car\Above side\Ghost above.png" />
-    <Resource Include="Assets\Images\Car\Above side\MC20 above.png" />
-    <Resource Include="Assets\Images\Car\Above side\McLaren P1 above.png" />
-    <Resource Include="Assets\Images\Car\Above side\Taycan Turbo S above.png" />
-    <Resource Include="Assets\Images\Car\Front side\911 GT3.png" />
-    <Resource Include="Assets\Images\Car\Front side\Agera RS.png" />
-    <Resource Include="Assets\Images\Car\Front side\Chiron.png" />
-    <Resource Include="Assets\Images\Car\Front side\Corvette C8.png" />
-    <Resource Include="Assets\Images\Car\Front side\Dawn.png" />
-    <Resource Include="Assets\Images\Car\Front side\DB5.png" />
-    <Resource Include="Assets\Images\Car\Front side\Ghost.png" />
-    <Resource Include="Assets\Images\Car\Front side\MC20.png" />
-    <Resource Include="Assets\Images\Car\Front side\P1.png" />
-    <Resource Include="Assets\Images\Car\Front side\Taycan Turbo S.png" />
+    <Resource Include="Assets\Images\Car\AboveSide\911 GT3 above.png" />
+    <Resource Include="Assets\Images\Car\AboveSide\Agera RS above.png" />
+    <Resource Include="Assets\Images\Car\AboveSide\Chiron above.png" />
+    <Resource Include="Assets\Images\Car\AboveSide\Corvette C8 above.png" />
+    <Resource Include="Assets\Images\Car\AboveSide\DB5 above.png" />
+    <Resource Include="Assets\Images\Car\AboveSide\Gawn above.png" />
+    <Resource Include="Assets\Images\Car\AboveSide\Ghost above.png" />
+    <Resource Include="Assets\Images\Car\AboveSide\MC20 above.png" />
+    <Resource Include="Assets\Images\Car\AboveSide\McLaren P1 above.png" />
+    <Resource Include="Assets\Images\Car\AboveSide\Taycan Turbo S above.png" />
+    <Resource Include="Assets\Images\Car\FrontSide\911 GT3.png" />
+    <Resource Include="Assets\Images\Car\FrontSide\Agera RS.png" />
+    <Resource Include="Assets\Images\Car\FrontSide\Chiron.png" />
+    <Resource Include="Assets\Images\Car\FrontSide\Corvette C8.png" />
+    <Resource Include="Assets\Images\Car\FrontSide\Dawn.png" />
+    <Resource Include="Assets\Images\Car\FrontSide\DB5.png" />
+    <Resource Include="Assets\Images\Car\FrontSide\Ghost.png" />
+    <Resource Include="Assets\Images\Car\FrontSide\MC20.png" />
+    <Resource Include="Assets\Images\Car\FrontSide\P1.png" />
+    <Resource Include="Assets\Images\Car\FrontSide\Taycan Turbo S.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Images\logo.png" />

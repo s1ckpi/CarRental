@@ -25,61 +25,70 @@ namespace CarRental.Views
     {
         Core db = new Core();
         Cars currentCars;
-        string fileString;
-        private byte[] _mainImageData;
+        string ImageAutomobilePath;
+        string ImageAboveAutomobilePath;
         public AddEditAutomobilePage(CarRentalEntities context, Cars activeCar)
         {
-            InitializeComponent(); 
-            List<string> colorCars = new List<string> { "Белый", "Чёрынй", "Серый", "Фиолетовый", "Красный", "Жёлтый", "Зелёный", "Голубой", "Синий", "Серебрянный", 
+            InitializeComponent();
+
+            List<CarModels> arrayCarModels = db.context.CarModels.ToList();
+
+            List<Brand> arrayBrand = db.context.Brand.ToList();
+
+            List<string> colorCars = new List<string> { "Белый", "Чёрынй", "Серый", "Фиолетовый", "Красный", "Жёлтый", "Зелёный", "Голубой", "Синий", "Серебрянный",
             "Золотой", "Оранжевый", "Розовый", "Малиновый", "Тёмно синий", "Тёмно зелёный", "Тёмно красный", "Тёмно фиолетовый", "Тёмно голубой", "Тёмно оранжевый" };
-            
+
             List<string> CarcassCars = new List<string> { "Седан", "Хэтчбек", "Универсал", "Лифтбэк", "Купе", "Кабриолет", "Родстер",
             "Тарга", "Лимузин", "Стретч", "Внедорожник", "Кроссовер", "Пикап", "Фургон", "Минивэн", "Микроавтобус", "Автобус"};
 
+            ModelComboBox.ItemsSource = arrayCarModels;
+            ModelComboBox.DisplayMemberPath = "Model";
+            ModelComboBox.SelectedValuePath = "IdCarModels";
+
+            BrandComboBox.ItemsSource = arrayBrand;
+            BrandComboBox.DisplayMemberPath = "BrandName";
+            BrandComboBox.SelectedValuePath = "IdBrand";
+
             ColorComboBox.ItemsSource = colorCars;
-            ColorComboBox.SelectedIndex = 0;
+
             CarcassComboBox.ItemsSource = CarcassCars;
-            CarcassComboBox.SelectedIndex = 0;
 
             currentCars = activeCar;
             this.db.context = context;
             this.DataContext = currentCars;
         }
 
-        private void SelectImageAutomoboleButtonClick(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Image |*.png; *.jpg, *.jpeg";
-            if (ofd.ShowDialog() == true)
-            {
-                _mainImageData = File.ReadAllBytes(ofd.FileName);
-                fileString = ofd.FileName;
-                ImageAutomobole.Source = (ImageSource)new ImageSourceConverter().ConvertFrom(_mainImageData);
-                ImageAutomobole.Visibility = Visibility.Visible;
-            }
-        }
-
         private void AddServiceButtonClick(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void SelectImageAutomobileAboveButtonClick(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Image |*.png; *.jpg, *.jpeg";
-            if (ofd.ShowDialog() == true)
+            if (!String.IsNullOrEmpty("fh"))
             {
-                _mainImageData = File.ReadAllBytes(ofd.FileName);
-                fileString = ofd.FileName;
-                ImageAutomobileAbove.Source = (ImageSource)new ImageSourceConverter().ConvertFrom(_mainImageData);
-                ImageAutomobileAbove.Visibility = Visibility.Visible;
+                int activeIdModel = Convert.ToInt32(currentCars.IdCarModels);
+                CarModels activeModel = db.context.CarModels.Where(x => x.IdCarModels == activeIdModel).FirstOrDefault();
+                if (activeModel != null)
+                {
+                    db.context.SaveChanges();
+                    NavigationService.Navigate(new AdminPage());
+                }
+                else
+                {
+
+                }
             }
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AdminPage());
+        }
+
+        private void AddBrandClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddBrand());
+        }
+
+        private void AddModelClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddModel(db.context,currentCars));
         }
     }
 }

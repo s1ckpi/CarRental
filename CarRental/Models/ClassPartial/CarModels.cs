@@ -12,9 +12,19 @@ namespace CarRental.Models
         {
             get
             {
-                string productImage;
-                productImage = "..\\..\\Assets\\Images\\" + Image.Trim();
-                return productImage;
+                string AutomobileImage;
+                AutomobileImage = "..\\..\\Assets\\Images\\" + Image.Trim();
+                return AutomobileImage;
+            }
+        }
+
+        public string ImageCarAbovePath
+        {
+            get
+            {
+                string AutomobileAboveImage;
+                AutomobileAboveImage = "..\\..\\Assets\\Images\\" + ImageAbove.Trim();
+                return AutomobileAboveImage;
             }
         }
     }

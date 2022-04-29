@@ -6,15 +6,10 @@
       xmlns:local="clr-namespace:CarRental.Views"
       mc:Ignorable="d" 
       Background="Transparent"
-      MinHeight="600" MinWidth="800"
-      MaxHeight="1040" MaxWidth="1920"
+      Height="1040" Width="1920"
       Title="AddEditAutomobilePage">
 
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1100"/>
-            <ColumnDefinition Width="770"/>
-        </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -32,70 +27,36 @@
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal" x:Name="TitleStackPanel" HorizontalAlignment="Center" Margin="0,0,6,0">
+        <StackPanel Grid.Row="5" Orientation="Horizontal" x:Name="TitleStackPanel" HorizontalAlignment="Center" Margin="256,0,3,0">
             <TextBlock Text="Бренд: " IsHitTestVisible="False" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <TextBox x:Name="BrandTextBox" Width="250" Height="40" TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="{Binding Brand.BrandName}"/>
+            <ComboBox Height="40" Width="250" x:Name="BrandComboBox" Text="{Binding Brand.BrandName}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button x:Name="AddBrand" Width="250" Height="40" Margin="10,0,0,0" Content="Добавить брэнд" Click="AddBrandClick"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,14.5,0">
+        <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Center" Margin="250,0,6,0">
             <TextBlock Text="Модель: " IsHitTestVisible="False" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <TextBox x:Name="ModelTextBox" Width="250" Height="40" TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Text="{Binding CarModels.Model}"/>
+            <ComboBox Height="40" Width="250" x:Name="ModelComboBox" Text="{Binding CarModels.Model}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button x:Name="AddModel" Width="250" Height="40" Margin="10,0,0,0" Content="Добавить/редактировать модель" Click="AddModelClick"/>
         </StackPanel>
 
-
-        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock Text="Цена: " IsHitTestVisible="False" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <TextBox x:Name="PriceTextBox" Width="250" Height="40" TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="{Binding CarModels.Price}"/>
-        </StackPanel>
-
-        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,17,0">
-            <TextBlock Text="Депозит: " IsHitTestVisible="False" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <TextBox x:Name="DepositTextBox" Width="250" Height="40" TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="{Binding CarModels.Deposit}"/>
-        </StackPanel>
-
-        <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,76.5,0">
-            <TextBlock Text="Разгон до 100 км/ч: " IsHitTestVisible="False" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <TextBox TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="40" Width="250" x:Name="AccelerationTextBox" Text="{Binding CarModels.Acceleration}"/>
-        </StackPanel>
-
-        <StackPanel Grid.Row="7" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,104.5,0">
-            <TextBlock Text="Максимальная скорость: " IsHitTestVisible="False" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <TextBox TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="40" Width="250" x:Name="MaxSpeedTextBox" Text="{Binding CarModels.MaxSpeed}"/>
-        </StackPanel>
-
-        <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,39,0">
-            <TextBlock Text="Год выпуска: " IsHitTestVisible="False" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <TextBox TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="40" Width="250" x:Name="YearOfIssueTextBox" Text="{Binding CarModels.YearOfIssue}"/>
-        </StackPanel>
-
-        <StackPanel Grid.Row="9" Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="7" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
             <TextBlock Text="Цвет: " IsHitTestVisible="False" VerticalAlignment="Center" Margin="0,0,10,0"/>
             <ComboBox Height="40" Width="250" x:Name="ColorComboBox" Text="{Binding Color.ColorName}" SelectedIndex="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></ComboBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="10" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,4,0">
+        <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,4,0">
             <TextBlock Text="Кузов: " IsHitTestVisible="False" VerticalAlignment="Center" Margin="0,0,10,0"/>
             <ComboBox Height="40" Width="250" x:Name="CarcassComboBox" Text="{Binding CarcassType.CarcassName}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></ComboBox>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="9" x:Name="ImageAutomobileStackPanel" Orientation="Vertical">
-            <Image x:Name="ImageAutomobole" Height="350" Source="{Binding ImagePath}"/>
-            <Button x:Name="SelectImageAutomoboleButton" Click="SelectImageAutomoboleButtonClick" Content="Выберите изображение автомобиля" Height="40" Width="250"/>
+        <StackPanel Grid.Row="9" HorizontalAlignment="Center" Margin="48,0,0,0">
+            <Button x:Name="AddServiceButton" Height="40" Width="250" Click="AddServiceButtonClick">Добавить/Изменить</Button>
         </StackPanel>
 
-        <StackPanel Grid.Column="1" Grid.Row="8" Grid.RowSpan="8" x:Name="ImageAutomobileAboveStackPanel" Orientation="Vertical">
-            <Image x:Name="ImageAutomobileAbove" Height="350" Source="{Binding ImagePath}"/>
-            <Button x:Name="SelectImageAutomobileAboveButton" Click="SelectImageAutomobileAboveButtonClick" Content="Выберите изображение автомобиля сверху" Height="40" Width="250"/>
-        </StackPanel>
-
-        <StackPanel Grid.Row="11" HorizontalAlignment="Center" Margin="48,0,0,0">
-            <Button x:Name="AddServiceButton" Height="40" Width="250" Click="AddServiceButtonClick">Добавить</Button>
-        </StackPanel>
-
-        <StackPanel Grid.Row="15" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+        <StackPanel Grid.Row="16" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,1790,40">
             <Button x:Name="BackButton" Height="40" Click="BackButtonClick">Назад</Button>
         </StackPanel>
     </Grid>
