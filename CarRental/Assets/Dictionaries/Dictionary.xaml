@@ -16,7 +16,7 @@
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Background" Value="Crimson"/>
-        <Setter Property="Height" Value="30"/>
+        <Setter Property="Height" Value="40"/>
         <Setter Property="Width" Value="100"/>
         <Setter Property="Margin" Value="0,5,5,0"/>
         <Setter Property="Cursor"  Value="Hand"/>
@@ -112,6 +112,58 @@
         <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
         <Style.Triggers>
             <DataTrigger Binding="{Binding Text, ElementName=RegLoginTextBox}" Value="">
+                <Setter Property="Visibility" Value="Visible"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="PlaceholderRegFirstNameTextBlock" TargetType="TextBlock">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Foreground" Value="DarkGray"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Text, ElementName=RegFirstNameTextBox}" Value="">
+                <Setter Property="Visibility" Value="Visible"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="PlaceholderRegLastNameTextBlock" TargetType="TextBlock">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Foreground" Value="DarkGray"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Text, ElementName=RegLastNameTextBox}" Value="">
+                <Setter Property="Visibility" Value="Visible"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="PlaceholderRegPatronymicNameTextBlock" TargetType="TextBlock">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Foreground" Value="DarkGray"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Text, ElementName=RegPatronymicNameTextBox}" Value="">
+                <Setter Property="Visibility" Value="Visible"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="PlaceholderDriverLicenseNumberTextBlock" TargetType="TextBlock">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Foreground" Value="DarkGray"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Text, ElementName=DriverLicenseNumberTextBox}" Value="">
                 <Setter Property="Visibility" Value="Visible"/>
             </DataTrigger>
         </Style.Triggers>
@@ -346,5 +398,23 @@
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="Margin" Value="0,0,0,0"/>
         <Setter Property="FontFamily" Value="{StaticResource NSDRegular}"/>
+    </Style>
+
+    <Style x:Key="DetailsButton" TargetType="Button">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="Crimson"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Cursor"  Value="Hand"/>
+        <Setter Property="FontFamily" Value="{StaticResource NSDBold}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border" CornerRadius="0,0,40,40" Background="Crimson">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 </ResourceDictionary>

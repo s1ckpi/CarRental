@@ -25,8 +25,6 @@ namespace CarRental.Models
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string PatronymicName { get; set; }
-        public string Passport { get; set; }
-        public string Address { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BeetwenCarsClients> BeetwenCarsClients { get; set; }

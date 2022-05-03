@@ -1,0 +1,59 @@
+﻿<Page x:Class="CarRental.Views.AutomobilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CarRental.Views"
+      mc:Ignorable="d" 
+      Background="Transparent"
+      Height="1040" Width="1920"
+      Title="AutomobilePage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+            <ComboBox x:Name="CarcassComboBox" Width="330" Height="50" Margin="0,0,10,0" SelectionChanged="CarcassComboBoxSelectionChanged"/>
+            <ComboBox x:Name="PriceComboBox" Width="330" Height="50" Margin="0,0,10,0" SelectionChanged="PriceComboBoxSelectionChanged"/>
+            <ComboBox x:Name="BrandComboBox" Width="330" Height="50" Margin="0,0,10,0" SelectionChanged="BrandComboBoxSelectionChanged"/>
+            <TextBox Style="{StaticResource SearchTextBox}" x:Name="SearchTextBox" Width="330" Height="50" SelectionChanged="SearchTextBoxSelectionChanged"/>
+            <StackPanel VerticalAlignment="Center" Margin="50,0,0,0">
+                <CheckBox x:Name="FreeCarsCheckBox" Foreground="#2EFF00" Checked="FreeCarsCheckBoxChecked" Unchecked="FreeCarsCheckBoxUnchecked">Свободный</CheckBox>
+                <CheckBox x:Name="BusyCarsCheckBox" Foreground="#FF0000" Checked="BusyCarsCheckBoxChecked" Unchecked="BusyCarsCheckBoxUnchecked" Margin="0,3,0,0">Занятый</CheckBox>
+                <CheckBox x:Name="UnderRepairCarsCheckBox" Foreground="#FBFF00" Checked="UnderRepairCarsCheckBoxChecked" Unchecked="UnderRepairCarsCheckBoxUnchecked" Margin="0,3,0,0">На ремонте</CheckBox>
+            </StackPanel>
+        </StackPanel>
+
+        <ListView Grid.Row="1" Name="ListAutomobileListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderThickness="0" Height="910" Margin="0,0,0,50">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="{Binding BackColor}" Width="450" Height="440" Margin="5" CornerRadius="40">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="290"/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="50"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="1" Width="410" Height="290" Source="{Binding CarModels.ImageCarPath}" Margin="20,0,20,0"/>
+                            <TextBlock Grid.Row="2" Text="{Binding CarModels.Price, StringFormat=' {0} ₽' }" Style="{StaticResource PriceTextBlock}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Margin="0,0,0,20"/>
+                            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                <TextBlock Text="{Binding Brand.BrandName}" Style="{StaticResource BrandTextBlock}" Margin="25,15,0,0"/>
+                                <TextBlock Text="{Binding CarModels.Model}" Style="{StaticResource ModelTextBlock}" Margin="15,15,0,0"/>
+                            </StackPanel>
+                            <Button Grid.Row="3" x:Name="DetailsButton" Style="{StaticResource DetailsButton}" Content="Детали" Click="DetailsButtonClick"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

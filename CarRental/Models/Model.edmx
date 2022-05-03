@@ -10,10 +10,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="RegistrationNumber" Type="nvarchar" MaxLength="50" />
-          <Property Name="DriverLicenseNumber" Type="varchar" MaxLength="50" />
-          <Property Name="DateStart" Type="date" />
-          <Property Name="DateEnd" Type="date" />
+          <Property Name="RegistrationNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DriverLicenseNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DateStart" Type="date" Nullable="false" />
+          <Property Name="DateEnd" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="Brand">
           <Key>
@@ -61,12 +61,10 @@
             <PropertyRef Name="DriverLicenseNumber" />
           </Key>
           <Property Name="DriverLicenseNumber" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Login" Type="nvarchar" MaxLength="50" />
-          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="PatronymicName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Passport" Type="varchar" MaxLength="50" />
-          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="PatronymicName" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Color">
           <Key>
@@ -88,11 +86,11 @@
           </Key>
           <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IdRole" Type="int" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" />
-          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_BeetwenCarsClients_Cars">
-          <End Role="Cars" Type="Self.Cars" Multiplicity="0..1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="1" />
           <End Role="BeetwenCarsClients" Type="Self.BeetwenCarsClients" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cars">
@@ -104,7 +102,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BeetwenCarsClients_Clients">
-          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
           <End Role="BeetwenCarsClients" Type="Self.BeetwenCarsClients" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Clients">
@@ -164,7 +162,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Clients_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
@@ -240,10 +238,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RegistrationNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DriverLicenseNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DateStart" Type="DateTime" Precision="0" />
-          <Property Name="DateEnd" Type="DateTime" Precision="0" />
+          <Property Name="RegistrationNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DriverLicenseNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Cars" Relationship="Self.FK_BeetwenCarsClients_Cars" FromRole="BeetwenCarsClients" ToRole="Cars" />
           <NavigationProperty Name="Clients" Relationship="Self.FK_BeetwenCarsClients_Clients" FromRole="BeetwenCarsClients" ToRole="Clients" />
         </EntityType>
@@ -301,12 +299,10 @@
             <PropertyRef Name="DriverLicenseNumber" />
           </Key>
           <Property Name="DriverLicenseNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PatronymicName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Passport" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PatronymicName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="BeetwenCarsClients" Relationship="Self.FK_BeetwenCarsClients_Clients" FromRole="Clients" ToRole="BeetwenCarsClients" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Clients_Users" FromRole="Clients" ToRole="Users" />
         </EntityType>
@@ -332,13 +328,13 @@
           </Key>
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdRole" Type="Int32" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Clients" Relationship="Self.FK_Clients_Users" FromRole="Users" ToRole="Clients" />
           <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
         </EntityType>
         <Association Name="FK_BeetwenCarsClients_Cars">
-          <End Role="Cars" Type="Self.Cars" Multiplicity="0..1" />
+          <End Role="Cars" Type="Self.Cars" Multiplicity="1" />
           <End Role="BeetwenCarsClients" Type="Self.BeetwenCarsClients" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cars">
@@ -350,7 +346,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_BeetwenCarsClients_Clients">
-          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
           <End Role="BeetwenCarsClients" Type="Self.BeetwenCarsClients" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Clients">
@@ -410,7 +406,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Clients_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
@@ -546,8 +542,6 @@
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="PatronymicName" ColumnName="PatronymicName" />
-                <ScalarProperty Name="Passport" ColumnName="Passport" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

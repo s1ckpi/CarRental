@@ -17,8 +17,8 @@ namespace CarRental.Models
         public int Id { get; set; }
         public string RegistrationNumber { get; set; }
         public string DriverLicenseNumber { get; set; }
-        public Nullable<System.DateTime> DateStart { get; set; }
-        public Nullable<System.DateTime> DateEnd { get; set; }
+        public System.DateTime DateStart { get; set; }
+        public System.DateTime DateEnd { get; set; }
     
         public virtual Cars Cars { get; set; }
         public virtual Clients Clients { get; set; }

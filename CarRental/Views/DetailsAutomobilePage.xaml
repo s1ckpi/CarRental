@@ -1,0 +1,55 @@
+﻿<Page x:Class="CarRental.Views.DetailsAutomobilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CarRental.Views"
+      mc:Ignorable="d" 
+      Background="Transparent"
+      Height="1040" Width="1920"
+      Title="DetailsAutomobilePage">
+
+    <Border Background="White" Margin="20,20,20,70" CornerRadius="20">
+        <Grid Height="1000">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1300"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="940"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="{Binding CarModels.ImageCarPath}" Height="600" Margin="125,0,0,0"/>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,60,0,0">
+                <TextBlock Text="{Binding Brand.BrandName}" Style="{StaticResource BrandTextBlock}" Foreground="Crimson" FontSize="48" Margin="0,0,0,0"/>
+                <TextBlock Text="{Binding CarModels.Model}" Foreground="Crimson" FontSize="48" Margin="30,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center" Margin="0,175,0,0">
+                <TextBlock Text="{Binding CarModels.MaxSpeed, StringFormat='Максимальная скорость : {0} км/ч'}" Foreground="Crimson" FontSize="24" Margin="0,0,0,0" HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding CarModels.Acceleration, StringFormat='Разгон до 100 км/ч : {0} сек'}" Foreground="Crimson" FontSize="24" Margin="0,15,0,0" HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding CarcassType.CarcassName, StringFormat='Кузов : {0} '}" Foreground="Crimson" FontSize="24" Margin="0,15,0,0" HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding Color.ColorName, StringFormat='Цвет : {0} '}" Foreground="Crimson" FontSize="24" Margin="0,15,0,0" HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding CarModels.YearOfIssue, StringFormat='Год : {0} '}" Foreground="Crimson" FontSize="24" Margin="0,15,0,0" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,0,50" HorizontalAlignment="Center">
+                <TextBlock Text="{Binding TextAvailability}" Foreground="{Binding TextColor}" FontSize="24" Margin="0,0,10,20" HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding CarModels.Price, StringFormat=' {0} ₽'}" Foreground="Crimson" FontSize="24" Margin="0,0,10,0" HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding CarModels.Deposit, StringFormat=' ({0} ₽)'}" Foreground="Crimson" FontSize="24" Margin="0,0,10,0" HorizontalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" Margin="250,0,0,0">
+                    <TextBlock Text="(депозит)" Foreground="Crimson" FontSize="14" HorizontalAlignment="Center"/>
+                    <TextBlock Text="До какого числа" Foreground="Crimson" FontSize="14" HorizontalAlignment="Center" Margin="90,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="RentalButton" Content="Арендовать" VerticalAlignment="Bottom" FontSize="18" Width="140" Margin="210,10,0,0" HorizontalAlignment="Center" Click="RentalButtonClick"/>
+                    <DatePicker Name="DateEndDatePicker" Margin="10,9,0,0" Width="200" Height="40"/>
+                </StackPanel>
+            </StackPanel>
+            <Button Grid.Row="1" x:Name="BackButton" Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,-75,0,0" Click="BackButtonClick"/>
+        </Grid>
+        
+    </Border>
+</Page>

@@ -27,5 +27,43 @@ namespace CarRental.Models
                 
             }
         }
+
+        public string TextColor
+        {
+            get
+            {
+                if (Availability == 2)
+                {
+                    return "#ffd600";
+                }
+                else 
+                {
+                    if (Availability == 1 || Availability == null)
+                        return "#990000";
+                    else
+                        return "#0fff00";
+                }
+                
+            }
+        }
+
+        public string TextAvailability
+        {
+            get
+            {
+                if (Availability == 2)
+                {
+                    return "На ремонте";
+                }
+                else
+                {
+                    if (Availability == 1 || Availability == null)
+                        return "Занят";
+                    else
+                        return "Свободен";
+                }
+
+            }
+        }
     }
 }
