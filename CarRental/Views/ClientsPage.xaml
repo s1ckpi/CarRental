@@ -10,6 +10,53 @@
       Title="ClientsPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="120"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="White" CornerRadius="20" Margin="20,20,20,0">
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Column="1" Text="Имя" FontSize="24" Width="65" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Crimson" Margin="0,0,1170,0"/>
+                <TextBlock Grid.Column="2" Text="Фамилия" FontSize="24" Width="135" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Crimson" Margin="0,0,290,0"/>
+                <TextBlock Grid.Column="3" Text="Отчество" FontSize="24" Width="135" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Crimson" Margin="560,0,0,0"/>
+                <TextBlock Grid.Column="4" Text="Телефон" FontSize="24" Width="135" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Crimson" Margin="1430,0,0,0"/>
+                
+                <ListView Grid.Row="1" Name="ListClientListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent" BorderThickness="0" Height="900">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="430"/>
+                                    <ColumnDefinition Width="430"/>
+                                    <ColumnDefinition Width="430"/>
+                                    <ColumnDefinition Width="430"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="{Binding ClientsImage}" Width="50"/>
+                                <TextBlock Grid.Column="1" Height="20" HorizontalAlignment="Center" Text="{Binding FirstName}"/>
+                                <TextBlock Grid.Column="2" Height="20" HorizontalAlignment="Center" Text="{Binding LastName}"/>
+                                <TextBlock Grid.Column="3" Height="20" HorizontalAlignment="Center" Text="{Binding PatronymicName}"/>
+                                <TextBlock Grid.Column="4" Height="20" HorizontalAlignment="Center" Text="{Binding Phone}"/>
+
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Border>
+        <Button Grid.Row="1" x:Name="BackButton" Content="Назад" Margin="20,0,0,50" HorizontalAlignment="Left" Click="BackButtonClick"/>
     </Grid>
 </Page>

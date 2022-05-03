@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarRental.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,18 @@ namespace CarRental.Views
     /// </summary>
     public partial class ClientsPage : Page
     {
+        Core db = new Core();
+        List<Clients> arrayClients;
         public ClientsPage()
         {
             InitializeComponent();
+            arrayClients = db.context.Clients.ToList();
+            ListClientListView.ItemsSource = arrayClients;
+        }
+
+        private void BackButtonClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AdminMenu());
         }
     }
 }

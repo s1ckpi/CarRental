@@ -66,6 +66,7 @@
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="PatronymicName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Phone" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="ImageClient" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Color">
           <Key>
@@ -289,6 +290,7 @@
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PatronymicName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImageClient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="BeetwenCarsClients" Relationship="Self.FK_BeetwenCarsClients_Clients" FromRole="Clients" ToRole="BeetwenCarsClients" />
         </EntityType>
         <EntityType Name="Color">
@@ -511,6 +513,7 @@
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="PatronymicName" ColumnName="PatronymicName" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="ImageClient" ColumnName="ImageClient" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -24,5 +24,27 @@ namespace CarRental.Views
         {
             InitializeComponent();
         }
+
+        private void ClientsButtonClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ClientsPage());
+        }
+
+        private void AutomobileButtonClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AdminPage());
+        }
+
+        private void ExtraditionButtonClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Cтраница в разработке", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //NavigationService.Navigate(new ClientsPage());
+        }
+
+        private void RepairButtonClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Cтраница в разработке", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            //NavigationService.Navigate(new ClientsPage());
+        }
     }
 }

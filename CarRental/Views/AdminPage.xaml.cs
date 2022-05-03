@@ -235,5 +235,10 @@ namespace CarRental.Views
             db.context.SaveChanges();
             UpdateServices();
         }
+
+        private void BackButtonClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AdminMenu());
+        }
     }
 }

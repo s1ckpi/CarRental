@@ -10,20 +10,22 @@
       MaxHeight="1040" MaxWidth="1920"
       Title="AdminMenu">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+    <Border Background="White" Margin="20" CornerRadius="20">
+        <Grid Background="White" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-        <Button Grid.Column="0">Клиенты</Button>
-        <Button Grid.Column="1">Автомобили</Button>
-        <Button Grid.Row="1">Выдача</Button>
-        <Button Grid.Row="1" Grid.Column="1">Ремонт</Button>
-    </Grid>
+            <Button x:Name="ClientsButton" Grid.Column="0" Width="200" Height="60" FontSize="24" Click="ClientsButtonClick">Клиенты</Button>
+            <Button x:Name="AutomobileButton" Grid.Column="1" Width="200" Height="60" FontSize="24" Click="AutomobileButtonClick">Автомобили</Button>
+            <Button x:Name="ExtraditionButton" Grid.Row="1" Width="200" Height="60" FontSize="24" Click="ExtraditionButtonClick">Выдача</Button>
+            <Button x:Name="RepairButton" Grid.Row="1" Grid.Column="1" Width="200" Height="60" FontSize="24" Click="RepairButtonClick">Ремонт</Button>
+        </Grid>
+    </Border>
 </Page>

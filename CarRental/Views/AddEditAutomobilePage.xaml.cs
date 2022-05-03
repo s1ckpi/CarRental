@@ -60,20 +60,42 @@ namespace CarRental.Views
 
         private void AddServiceButtonClick(object sender, RoutedEventArgs e)
         {
-            if (!String.IsNullOrEmpty("fh"))
-            {
-                int activeIdModel = Convert.ToInt32(currentCars.IdCarModels);
-                CarModels activeModel = db.context.CarModels.Where(x => x.IdCarModels == activeIdModel).FirstOrDefault();
-                if (activeModel != null)
-                {
-                    db.context.SaveChanges();
-                    NavigationService.Navigate(new AdminPage());
-                }
-                else
-                {
+            //if (!String.IsNullOrEmpty("fh"))
+            //{
+            //    int activeIdModel = Convert.ToInt32(currentCars.IdCarModels);
+            //    CarModels activeModel = db.context.CarModels.Where(x => x.IdCarModels == activeIdModel).FirstOrDefault();
+            //    if (activeModel != null)
+            //    {
+            //        db.context.SaveChanges();
+            //        NavigationService.Navigate(new AdminPage());
+            //    }
+            //    else
+            //    {
 
-                }
+            //    }
+            //}
+            if (currentCars == null)
+            {
+                Cars newCars = new Cars()
+                {
+                    IdBrand = Convert.ToInt32(BrandComboBox.SelectedValuePath),
+                    IdCarModels = Convert.ToInt32(ModelComboBox.SelectedValuePath),
+                    IdColor = Convert.ToInt32(ColorComboBox.SelectedValuePath),
+                    IdCarcassType = Convert.ToInt32(CarcassComboBox.SelectedValuePath),
+                    Availability = 2,
+                };
+                db.context.Cars.Add(newCars);
+                db.context.SaveChanges();
+
+                NavigationService.Navigate(new AdminPage());
             }
+            else
+            {
+                db.context.SaveChanges();
+
+                NavigationService.Navigate(new AdminPage());
+            }
+            
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
