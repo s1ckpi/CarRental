@@ -54,6 +54,7 @@ namespace CarRental.Views
                 LastName = RegLastNameTextBox.Text,
                 FirstName = RegFirstNameTextBox.Text,
                 PatronymicName = RegPatronymicNameTextBox.Text,
+                Phone = PhoneTextBox.Text,
             };
             db.context.Clients.Add(newClient);
 

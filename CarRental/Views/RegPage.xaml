@@ -9,14 +9,15 @@
       Title="RegPage">
 
     <Grid Grid.Row="2" Grid.Column="0" x:Name="RegMenuGrid" Margin="40,20,20,20">
-        <TextBlock Width="45" Height="25" Margin="0,0,230,603" Style="{StaticResource PlaceholderRegLoginTextBlock}" Panel.ZIndex="1" Text="Логин" IsHitTestVisible="False"></TextBlock>
-        <TextBlock Width="45" Height="25" Margin="0,0,231,472" Style="{StaticResource PlaceholderRegFirstNameTextBlock}" Panel.ZIndex="1" Text="Имя" IsHitTestVisible="False"></TextBlock>
-        <TextBlock Width="70" Height="25" Margin="0,0,205,343" Style="{StaticResource PlaceholderRegLastNameTextBlock}" Panel.ZIndex="1" Text="Фамилия" IsHitTestVisible="False"></TextBlock>
-        <TextBlock Width="70" Height="25" Margin="0,0,205,213" Style="{StaticResource PlaceholderRegPatronymicNameTextBlock}" Panel.ZIndex="1" Text="Отчество" IsHitTestVisible="False"></TextBlock>
-        <TextBlock Width="200" Height="25" Margin="0,0,75,83" Style="{StaticResource PlaceholderDriverLicenseNumberTextBlock}" Panel.ZIndex="1" Text="Номер влдительских прав" IsHitTestVisible="False"></TextBlock>
-        <TextBlock Width="45" Height="25" Margin="0,47,231,0" Style="{StaticResource PlaceholderRegEmailTextBlock}" Panel.ZIndex="1" Text="Почта" IsHitTestVisible="False"></TextBlock>
-        <TextBlock Width="70" Height="25" Margin="0,177,205,0" Style="{StaticResource PlaceholderRegPasswordTextBlock}" Panel.ZIndex="1" Text="Пароль" IsHitTestVisible="False"></TextBlock>
-        <TextBlock Width="158" Height="20" Margin="0,302,118,0" Style="{StaticResource PlaceholderRegConfirmPasswordTextBlock}" Panel.ZIndex="1" Text="Подтвердить пароль" IsHitTestVisible="False"/>
+        <TextBlock Width="45" Height="25" Margin="0,0,230,670" Style="{StaticResource PlaceholderRegLoginTextBlock}" Panel.ZIndex="1" Text="Логин" IsHitTestVisible="False"></TextBlock>
+        <TextBlock Width="45" Height="25" Margin="0,0,231,540" Style="{StaticResource PlaceholderRegFirstNameTextBlock}" Panel.ZIndex="1" Text="Имя" IsHitTestVisible="False"></TextBlock>
+        <TextBlock Width="70" Height="25" Margin="0,0,205,410" Style="{StaticResource PlaceholderRegLastNameTextBlock}" Panel.ZIndex="1" Text="Фамилия" IsHitTestVisible="False"></TextBlock>
+        <TextBlock Width="70" Height="25" Margin="0,0,205,280" Style="{StaticResource PlaceholderRegPatronymicNameTextBlock}" Panel.ZIndex="1" Text="Отчество" IsHitTestVisible="False"></TextBlock>
+        <TextBlock Width="70" Height="25" Margin="0,0,205,150" Style="{StaticResource PlaceholderPhoneTextBlock}" Panel.ZIndex="1" Text="Телефон" IsHitTestVisible="False"></TextBlock>
+        <TextBlock Width="200" Height="25" Margin="0,0,75,20" Style="{StaticResource PlaceholderDriverLicenseNumberTextBlock}" Panel.ZIndex="1" Text="Номер влдительских прав" IsHitTestVisible="False"></TextBlock>
+        <TextBlock Width="45" Height="25" Margin="0,47,231,-63" Style="{StaticResource PlaceholderRegEmailTextBlock}" Panel.ZIndex="1" Text="Почта" IsHitTestVisible="False"></TextBlock>
+        <TextBlock Width="70" Height="25" Margin="0,177,205,-63" Style="{StaticResource PlaceholderRegPasswordTextBlock}" Panel.ZIndex="1" Text="Пароль" IsHitTestVisible="False"></TextBlock>
+        <TextBlock Width="158" Height="20" Margin="0,302,118,-63" Style="{StaticResource PlaceholderRegConfirmPasswordTextBlock}" Panel.ZIndex="1" Text="Подтвердить пароль" IsHitTestVisible="False"/>
         <Border Background="White" BorderThickness="0" CornerRadius="20">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                 <TextBlock x:Name="AuthTextBlock" Width="150" Height="40" FontSize="25" Foreground="Crimson">Регистрация</TextBlock>
@@ -24,6 +25,7 @@
                 <TextBox x:Name="RegFirstNameTextBox" Width="300" Height="40" Margin="0,25,0,0"></TextBox>
                 <TextBox x:Name="RegLastNameTextBox" Width="300" Height="40" Margin="0,25,0,0"></TextBox>
                 <TextBox x:Name="RegPatronymicNameTextBox" Width="300" Height="40" Margin="0,25,0,0"></TextBox>
+                <TextBox x:Name="PhoneTextBox" Width="300" Height="40" Margin="0,25,0,0"></TextBox>
                 <TextBox x:Name="DriverLicenseNumberTextBox" Width="300" Height="40" Margin="0,25,0,0"></TextBox>
                 <TextBox x:Name="RegEmailTextBox" Width="300" Height="40" Margin="0,25,0,0"></TextBox>
                 <TextBox x:Name="RegPasswordTextBox" Width="300" Height="40" Margin="0,25,0,0"></TextBox>
